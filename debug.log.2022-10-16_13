@@ -1,0 +1,8 @@
+2022-10-16 13:23:06,299 |  33210 | fetch_game_schedule | 43 | WARNING | No tables found - https://www.basketball-reference.com/leagues/NBA_2023_games-febuary.html
+2022-10-16 13:23:06,373 |  33210 | fetch_game_schedule | 43 | WARNING | No tables found - https://www.basketball-reference.com/leagues/NBA_2023_games-may.html
+2022-10-16 13:23:37,032 |  33383 | fetch_game_schedule | 43 | WARNING | No tables found - https://www.basketball-reference.com/leagues/NBA_2023_games-febuary.html
+2022-10-16 13:23:37,107 |  33383 | fetch_game_schedule | 43 | WARNING | No tables found - https://www.basketball-reference.com/leagues/NBA_2023_games-may.html
+2022-10-16 13:35:51,276 |  34576 | fetch_game_schedule | 43 | WARNING | No tables found - https://www.basketball-reference.com/leagues/NBA_2023_games-febuary.html
+2022-10-16 13:35:51,349 |  34576 | fetch_game_schedule | 43 | WARNING | No tables found - https://www.basketball-reference.com/leagues/NBA_2023_games-may.html
+2022-10-16 13:37:16,132 |  34881 | fetch_game_schedule | 43 | WARNING | No tables found - https://www.basketball-reference.com/leagues/NBA_2023_games-febuary.html
+2022-10-16 13:37:16,207 |  34881 | fetch_game_schedule | 43 | WARNING | No tables found - https://www.basketball-reference.com/leagues/NBA_2023_games-may.html
