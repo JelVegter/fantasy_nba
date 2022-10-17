@@ -1,6 +1,14 @@
-from datetime import datetime
+from datetime import datetime, timedelta, date
+from typing import Union
+
+
+def get_week_number(dt: Union[datetime, date]) -> int:
+    return dt.isocalendar()[1]
 
 
 TODAY = datetime.today()
 CURRENTDAYOFWEEK = TODAY.weekday()
+CURRENTWEEKNUMBER = get_week_number(TODAY)
+NEXTWEEKNUMBER = get_week_number(TODAY + timedelta(weeks=1))
+
 DATESTAMP = TODAY.strftime("%Y%m%d")

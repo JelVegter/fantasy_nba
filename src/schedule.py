@@ -79,7 +79,8 @@ def abbreviate_team(team: str) -> str:
     return TEAMS[team]
 
 
-def main(debug: bool = False):
+def main_schedule(debug: bool = False):
+    logging.basicConfig(level=logging.WARNING)
     if debug:
         logging.basicConfig(level=logging.DEBUG)
 
@@ -91,4 +92,4 @@ def main(debug: bool = False):
 
 
 if __name__ == "__main__":
-    main(True)
+    main_schedule(True)

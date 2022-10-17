@@ -36,8 +36,7 @@ MONTHS = [
     "november",
     "december",
     "january",
-    "febuary",
+    "february",
     "march",
     "april",
-    "may",
 ]

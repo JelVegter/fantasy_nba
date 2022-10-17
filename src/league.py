@@ -1,4 +1,3 @@
-import logging
 from espn_api.basketball import League
 
 YEAR = 2023
@@ -20,5 +19,7 @@ league = League(
     espn_s2=espn_s2,
     swid=swid,
 )
+
+FANTASY_TEAMS = [t.team_name for t in league.teams].sort()
 # logging.warning(league.free_agents())
 # logging.info(league.get_team_data())

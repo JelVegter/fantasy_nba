@@ -2,6 +2,7 @@ import logging
 from pandas import read_csv, DataFrame
 from common.datetime_utils import DATESTAMP
 from common.constants import TEAMS
+from pprint import pprint
 
 
 def get_schedule():
@@ -82,7 +83,7 @@ def create_week_view(df: DataFrame) -> DataFrame:
             records.append(record)
 
     week_view = DataFrame().from_records(records)
-    logging.debug(week_view)
+    logging.debug(pprint(week_view))
     return week_view
 
 
@@ -90,7 +91,7 @@ def export_game_schedule(df: DataFrame) -> DataFrame:
     df.to_csv(f"data/schedule/week_{DATESTAMP}.csv")
 
 
-def main(debug: bool = False):
+def weekvw_main(debug: bool = False):
     if debug:
         logging.basicConfig(level=logging.DEBUG)
 
@@ -102,4 +103,4 @@ def main(debug: bool = False):
 
 
 if __name__ == "__main__":
-    main(True)
+    weekvw_main(True)

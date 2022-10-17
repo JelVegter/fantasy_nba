@@ -16,6 +16,8 @@ def get_player_stats(rosters: dict[list[Player]]) -> DataFrame:
             data["Player"] = player.name
             data["Roster"] = roster
             data["Team"] = player.proTeam
+            data["Position"] = player.position
+            data["Status"] = player.injuryStatus
             data["Projected_fantasy_points"] = data.apply(
                 lambda x: project_avg_fantasy_points(x), axis=1
             )
