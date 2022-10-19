@@ -10,5 +10,4 @@ TODAY = datetime.today()
 CURRENTDAYOFWEEK = TODAY.weekday()
 CURRENTWEEKNUMBER = get_week_number(TODAY)
 NEXTWEEKNUMBER = get_week_number(TODAY + timedelta(weeks=1))
-
 DATESTAMP = TODAY.strftime("%Y%m%d")

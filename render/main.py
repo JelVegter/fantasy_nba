@@ -9,7 +9,7 @@ import schedule
 def main(debug: bool = False):
     if debug:
         fileConfig("logging.ini")
-        logger = logging.getLogger("dev")
+        logging.getLogger("dev")
 
     st.set_page_config(  # Alternate names: setup_page, page, layout
         layout="wide",  # Can be "centered" or "wide". In the future also "dashboard", etc.

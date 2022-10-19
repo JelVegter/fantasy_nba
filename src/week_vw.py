@@ -1,16 +1,12 @@
 import logging
-from pandas import read_csv, DataFrame
+from pandas import DataFrame
 from common.datetime_utils import DATESTAMP
 from common.constants import TEAMS
-from pprint import pprint
-
-
-def get_schedule():
-    return read_csv(f"data/schedule/schedule_{DATESTAMP}.csv", index_col=[0])
+from src.schedule import main_schedule
 
 
 def find_opponent(row, day_of_week):
-    opponent = ""
+    opponent = None
     if row["DayOfWeek"] == day_of_week:
         if row["Side"] == "Home":
             opponent = "@" + row["Opponent"]
@@ -59,13 +55,13 @@ def create_week_view(df: DataFrame) -> DataFrame:
 
         for week in df["Week"].unique():
             __df = _df.loc[_df["Week"] == week]
-            monday = __df["Monday"].max()
-            tuesday = __df["Tuesday"].max()
-            wednesday = __df["Wednesday"].max()
-            thursday = __df["Thursday"].max()
-            friday = __df["Friday"].max()
-            saturday = __df["Saturday"].max()
-            sunday = __df["Sunday"].max()
+            monday = __df["Monday"].fillna("").max()
+            tuesday = __df["Tuesday"].fillna("").max()
+            wednesday = __df["Wednesday"].fillna("").max()
+            thursday = __df["Thursday"].fillna("").max()
+            friday = __df["Friday"].fillna("").max()
+            saturday = __df["Saturday"].fillna("").max()
+            sunday = __df["Sunday"].fillna("").max()
             game_count = __df["GameCount"].sum()
 
             record = {
@@ -83,7 +79,6 @@ def create_week_view(df: DataFrame) -> DataFrame:
             records.append(record)
 
     week_view = DataFrame().from_records(records)
-    logging.debug(pprint(week_view))
     return week_view
 
 
@@ -91,11 +86,12 @@ def export_game_schedule(df: DataFrame) -> DataFrame:
     df.to_csv(f"data/schedule/week_{DATESTAMP}.csv")
 
 
-def weekvw_main(debug: bool = False):
+def weekvw_main(debug: bool = False) -> DataFrame:
+    logging.basicConfig(level=logging.WARNING)
     if debug:
         logging.basicConfig(level=logging.DEBUG)
 
-    df = get_schedule()
+    df = main_schedule()
     df = transpose_schedule(df)
     df = create_week_view(df)
     export_game_schedule(df)
