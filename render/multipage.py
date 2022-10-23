@@ -1,5 +1,5 @@
 import streamlit as st
-
+from common.datasets import DATASETS
 
 # Define the multipage class to manage the multiple apps in our program
 class MultiPage:
@@ -21,6 +21,9 @@ class MultiPage:
         self.pages.append({"title": title, "function": func})
 
     def run(self):
+        if st.button(label="Refresh Datasets"):
+            DATASETS.refresh_datasets()
+
         # Drodown to select the page to run
         page = st.sidebar.selectbox(
             "App Navigation", self.pages, format_func=lambda page: page["title"]

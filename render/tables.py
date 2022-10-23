@@ -1,6 +1,4 @@
 import logging
-from multiprocessing.sharedctypes import Value
-from pprint import pprint
 from pandas import DataFrame
 
 
@@ -34,7 +32,18 @@ def format_week_schedule_table(df: DataFrame) -> DataFrame:
 
 
 def filter_player_stat_table_colums(df: DataFrame) -> DataFrame:
-    cols = ["Player", "Team", "Position", "Status", "Projected_fantasy_points"]
+    df = df.rename(columns={"Projected_fantasy_points": "Points"})
+    cols = [
+        "Player",
+        "Team",
+        "Position",
+        "Status",
+        "Points",
+        "Today",
+        "NextThreeDays",
+        "ThisWeek",
+        "NextWeek",
+    ]
     return df[cols]
 
 
@@ -51,7 +60,6 @@ def filter_table(
 
     if filters:
         for filter in filters.keys():
-
             try:
                 if isinstance(filters[filter], (str, int)):
                     df = df.loc[df[filter] == filters[filter]]

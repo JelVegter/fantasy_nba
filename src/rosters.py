@@ -1,53 +1,68 @@
 import logging
 from src.league import league
-from espn_api.basketball import League, Team, Player
+from espn_api.basketball import League, Player
 from pandas import DataFrame
-from common.datetime_utils import DATESTAMP
+from common.utils import DataGetter
 
 
-def get_rosters(
-    league: League = league,
-    free_agents: bool = False,
-    nr_of_free_agents: int = 100,
-) -> dict[str, list[Player]]:
-    """Function to get players in roster for teams or the free agent pool"""
+class RosterDataGetter(DataGetter):
+    def __init__(self, league: League, free_agents: bool = False) -> None:
+        self.free_agents = free_agents
+        self.league = league
+        super().__init__()
 
-    if free_agents:
-        return {"free_agents": league.free_agents(nr_of_free_agents)}
-    return {team.team_name: team.roster for team in league.teams}
+    def fetch_data(
+        self,
+    ) -> dict[str, list[Player]]:
+
+        if self.free_agents:
+            rosters = {"free_agents": self.league.free_agents(100)}
+            self.df = DataFrame.from_dict(rosters, orient="columns")
+        else:
+            rosters = {team.team_name: team.roster for team in self.league.teams}
+            self.df = DataFrame.from_dict(rosters, orient="index").transpose()
+
+        return self.df
+
+    def clean_data():
+        ...
+
+    def transform_data():
+        ...
+
+    def export_data(self):
+        ...
+
+    def read_data(self):
+        ...
+
+    def get_data(self):
+        logging.info("Creating Player data file")
+        self.fetch_data()
+        return self.df
 
 
-def rosters_to_dataframe(rosters: dict[str, list[Player]]) -> DataFrame:
-    df = DataFrame.from_dict(rosters, orient="columns")
-    return df
-
-
-def export_rosters(df: DataFrame, free_agents: bool = False) -> DataFrame:
-    roster = "team"
-    if free_agents:
-        roster = "freeagent"
-    file_name = f"data/roster/{roster}_{DATESTAMP}.csv"
-    df.to_csv(file_name)
-    logging.info(f"Exported dataframe as: {file_name}")
-    return df
-
-
-def main(debug: bool = False) -> list[Team]:
+def main_team_rosters(debug: bool = False):
     if debug:
         logging.basicConfig(level=logging.DEBUG)
 
-    # Team rosters
-    rosters = get_rosters()
-    df = rosters_to_dataframe(rosters)
-    export_rosters(df)
+    roster = RosterDataGetter(league=league)
+    roster.get_data()
+    return roster.df
 
-    # Free agent rosters
-    free_agents = get_rosters(free_agents=True, nr_of_free_agents=100)
-    df = rosters_to_dataframe(free_agents)
-    export_rosters(df, free_agents=True)
 
-    return rosters
+def main_free_agent_rosters(debug: bool = False):
+    if debug:
+        logging.basicConfig(level=logging.DEBUG)
+
+    roster = RosterDataGetter(
+        league=league,
+        free_agents=True,
+    )
+    roster.get_data()
+    return roster.df
 
 
 if __name__ == "__main__":
-    main(True)
+    logging.critical(main_team_rosters())
+    logging.critical(main_free_agent_rosters())

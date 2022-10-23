@@ -6,7 +6,7 @@ def get_week_number(dt: Union[datetime, date]) -> int:
     return dt.isocalendar()[1]
 
 
-TODAY = datetime.today()
+TODAY = date.today()
 CURRENTDAYOFWEEK = TODAY.weekday()
 CURRENTWEEKNUMBER = get_week_number(TODAY)
 NEXTWEEKNUMBER = get_week_number(TODAY + timedelta(weeks=1))

@@ -57,22 +57,22 @@ class ScheduleDataGetter(DataGetter):
         )
         self.df["Week"] = self.df["Date"].dt.isocalendar().week
         self.df["DayOfWeek"] = self.df["Date"].dt.dayofweek
+        self.df["Date"] = self.df["Date"].dt.date
         self.df["Visitor"] = self.df["Visitor/Neutral"].map(abbreviate_team)
         self.df["Home"] = self.df["Home/Neutral"].map(abbreviate_team)
         cols = ["Date", "Week", "DayOfWeek", "Start (ET)", "Visitor", "Home"]
         self.df = self.df[cols]
         return self.df
 
-    def transform_data(self) -> DataFrame:
-        self.df["Date"] = to_datetime(self.df["Date"], errors="coerce").dt.tz_localize(
-            tz="US/Eastern"
+    def transform_data(self):
+        self.df["Matchup"] = self.df.apply(
+            lambda x: x["Visitor"] + "@" + x["Home"], axis=1
         )
-        self.df["Week"] = self.df["Date"].dt.isocalendar().week
-        self.df["DayOfWeek"] = self.df["Date"].dt.dayofweek
-        self.df["Visitor"] = self.df["Visitor/Neutral"].map(abbreviate_team)
-        self.df["Home"] = self.df["Home/Neutral"].map(abbreviate_team)
-        cols = ["Date", "Week", "DayOfWeek", "Start (ET)", "Visitor", "Home"]
-        self.df = self.df[cols]
+        home = self.df.rename(columns={"Home": "Team", "Visitor": "Opponent"})
+        home["Side"] = "Home"
+        visitor = self.df.rename(columns={"Visitor": "Team", "Home": "Opponent"})
+        visitor["Side"] = "Visitor"
+        self.df = concat([home, visitor])
         return self.df
 
     def export_data(self) -> DataFrame:
@@ -85,12 +85,16 @@ class ScheduleDataGetter(DataGetter):
 
     def get_data(self, year: int, months: list[str]) -> DataFrame:
         if os.path.isfile(self.file_path):
-            return self.read_data()
+            logging.info(f"Reading data from: {self.file_path}")
+            self.df = self.read_data()
+            self.df["Date"] = to_datetime(self.df["Date"]).dt.date
+            return self.df
 
+        logging.info("No existing Schedule dataset found. Fetching data...")
         self.fetch_data(year=year, months=months)
         self.clean_data()
         self.transform_data()
-        self.export_data(self.df)
+        self.export_data()
         return self.df
 
 

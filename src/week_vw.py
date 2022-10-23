@@ -86,7 +86,7 @@ def export_game_schedule(df: DataFrame) -> DataFrame:
     df.to_csv(f"data/schedule/week_{DATESTAMP}.csv")
 
 
-def weekvw_main(debug: bool = False) -> DataFrame:
+def main_week_vw(debug: bool = False) -> DataFrame:
     logging.basicConfig(level=logging.WARNING)
     if debug:
         logging.basicConfig(level=logging.DEBUG)
@@ -99,4 +99,4 @@ def weekvw_main(debug: bool = False) -> DataFrame:
 
 
 if __name__ == "__main__":
-    weekvw_main(True)
+    main_week_vw(True)

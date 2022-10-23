@@ -1,12 +1,12 @@
+import logging
 import streamlit as st
 from src.league import FANTASY_TEAMS, league
-from src.week_vw import weekvw_main
-from src.players import main_free_agents, main_team_players
 from render.tables import (
     format_week_schedule_table,
     filter_table,
     filter_player_stat_table_colums,
 )
+from common.datasets import DATASETS
 from common.datetime_utils import CURRENTWEEKNUMBER, NEXTWEEKNUMBER
 from common.constants import TEAMS
 
@@ -50,11 +50,6 @@ def app():
         else:
             week = int(week)
 
-    # Data
-    week_schedule = weekvw_main()
-    free_agents = main_free_agents()
-    roster_players = main_team_players()
-
     st.title("Schedule")
     filters = {}
     if week:
@@ -63,7 +58,7 @@ def app():
     if teams:
         filters["Team"] = teams
 
-    week_schedule = filter_table(week_schedule, filters)
+    week_schedule = filter_table(DATASETS.week_vw, filters)
     week_schedule = format_week_schedule_table(week_schedule)
     st.dataframe(week_schedule, height=400, width=1050)
 
@@ -82,7 +77,7 @@ def app():
     if injury:
         filters["Status"] = injury
 
-    free_agents = filter_table(free_agents, filters, nr_of_rows)
+    free_agents = filter_table(DATASETS.free_agents, filters, nr_of_rows)
     free_agents = filter_player_stat_table_colums(free_agents)
     e.dataframe(free_agents, height=400)
 
@@ -91,6 +86,6 @@ def app():
     if fantasy_roster:
         filters["Roster"] = fantasy_roster
 
-    roster_players = filter_table(roster_players, filters)
+    roster_players = filter_table(DATASETS.roster_players, filters)
     roster_players = filter_player_stat_table_colums(roster_players)
     f.dataframe(roster_players, height=400)
