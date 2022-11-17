@@ -3,7 +3,9 @@ from logging.config import fileConfig
 import streamlit as st
 
 from multipage import MultiPage
-import schedule
+import render.schedule
+import render.matchup
+import render.playerschedule
 
 
 def main(debug: bool = False):
@@ -22,11 +24,11 @@ def main(debug: bool = False):
     # ---------------  DEFINE PAGES ---------------#
     # ---------------------------------------------#
     app = MultiPage()
-    app.add_page("Schedule", schedule.app)
+    app.add_page("Schedule", render.schedule.app)
     # app.add_page("Free Players", page_free_agents.app)
     # app.add_page("Player Streaming", page_streaming.app)
-    # app.add_page("Matchup Comparison", page_matchup_comparison.app)
-    # app.add_page("Y-Parameter Optimization",redundant.app)
+    app.add_page("Matchup", render.matchup.app)
+    app.add_page("Player Schedule", render.playerschedule.app)
     app.run()
 
 
