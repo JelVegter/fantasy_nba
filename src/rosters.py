@@ -1,6 +1,6 @@
 import logging
-from src.league import league
-from espn_api.basketball import League, Player
+from src.league import league, refresh_league
+from espn_api.basketball import League
 from pandas import DataFrame
 from common.utils import DataGetter
 
@@ -13,7 +13,7 @@ class RosterDataGetter(DataGetter):
 
     def fetch_data(
         self,
-    ) -> dict[str, list[Player]]:
+    ) -> DataFrame:
 
         if self.free_agents:
             rosters = {"free_agents": self.league.free_agents(100)}
@@ -46,6 +46,7 @@ def main_team_rosters(debug: bool = False):
     if debug:
         logging.basicConfig(level=logging.DEBUG)
 
+    league = refresh_league()
     roster = RosterDataGetter(league=league)
     roster.get_data()
     return roster.df

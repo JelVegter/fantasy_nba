@@ -1,3 +1,4 @@
+import logging
 from espn_api.basketball import League
 
 YEAR = 2023
@@ -13,4 +14,45 @@ league = League(
     swid=swid,
 )
 
+
+def refresh_league():
+    return League(
+        league_id=league_id,
+        year=YEAR,
+        espn_s2=espn_s2,
+        swid=swid,
+    )
+
+
 FANTASY_TEAMS = sorted([t.team_name for t in league.teams])
+
+
+def fetch_fantasy_team_current_fantasy_points() -> dict[str, int]:
+    fantasy_team_points = {}
+    for team in league.teams:
+        fantasy_team_points[team] = stats_points_conversion(team.stats)
+    return fantasy_team_points
+
+
+def stats_points_conversion(stats: dict[str, float]) -> int:
+    fantasy_points = 0
+    points_per_stat = {
+        "PTS": 1,
+        "FTA": -1,
+        "BLK": 4,
+        "3PTM": 1,
+        "STL": 4,
+        "AST": 2,
+        "REB": 1,
+        "TO": -2,
+        "FGM": 2,
+        "FGA": -1,
+        "FTM": 1,
+    }
+
+    for stat in stats.keys():
+        fantasy_points += points_per_stat[stat] * stats[stat]
+    return int(fantasy_points)
+
+
+FANTASY_TEAMS_CURRENT_POINTS: dict = fetch_fantasy_team_current_fantasy_points()

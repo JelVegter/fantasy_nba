@@ -15,7 +15,7 @@ def app():
     with st.sidebar:
         # Fantasy roster
         fantasy_roster = st.sidebar.selectbox(
-            label="Select Fantasy Team", options=FANTASY_TEAMS, index=7
+            label="Select Fantasy Team", options=FANTASY_TEAMS, index=6
         )
 
         # Show Players, Injured Players
@@ -49,42 +49,51 @@ def app():
         else:
             week = int(week)
 
-    st.title("Schedule")
-    filters = {}
+    st.title("Player schedule")
+    schedule_filters = {}
     if week:
-        filters["Week"] = week
+        schedule_filters["Week"] = week
 
     if teams:
-        filters["Team"] = teams
+        schedule_filters["Team"] = teams
 
-    week_schedule = filter_table(DATASETS.week_vw, filters)
-    week_schedule = format_week_schedule_table(week_schedule)
-    st.dataframe(week_schedule, height=400, width=1050)
-
-    e, f = st.columns(2)
-    e.title("Free Agents")
-    filters = {}
+    free_agent_filters = {}
     if teams:
-        filters["Team"] = teams
+        free_agent_filters["Team"] = teams
 
     if free_agent:
-        filters["Player"] = free_agent
+        free_agent_filters["Player"] = free_agent
 
     if position:
-        filters["Position"] = position
+        free_agent_filters["Position"] = position
 
     if injury:
-        filters["Status"] = injury
+        free_agent_filters["Status"] = injury
 
-    free_agents = filter_table(DATASETS.free_agents, filters, nr_of_rows)
+    ###
+    week_schedule = filter_table(DATASETS.week_vw, schedule_filters)
+    week_schedule.reset_index(inplace=True)
+    free_agents = filter_table(DATASETS.free_agents, free_agent_filters, nr_of_rows)
     free_agents = filter_player_stat_table_colums(free_agents)
-    e.dataframe(free_agents, height=400)
+    # free_agents = free_agents.set_index("Team")
+    # free_agent_schedule = free_agents.join(week_schedule, how="left")
+    free_agent_schedule = free_agents.merge(week_schedule, how="left", on="Team")
+    # free_agent_schedule = format_week_schedule_table(free_agent_schedule)
 
-    f.title("Roster Players")
-    filters = {}
-    if fantasy_roster:
-        filters["Roster"] = fantasy_roster
+    st.dataframe(free_agent_schedule, height=400, width=1050)
 
-    roster_players = filter_table(DATASETS.roster_players, filters)
-    roster_players = filter_player_stat_table_colums(roster_players)
-    f.dataframe(roster_players, height=400)
+    # e, f = st.columns(2)
+    # e.title("Free Agents")
+
+    # free_agents = filter_table(DATASETS.free_agents, filters, nr_of_rows)
+    # free_agents = filter_player_stat_table_colums(free_agents)
+    # e.dataframe(free_agents, height=400)
+
+    # f.title("Roster Players")
+    # filters = {}
+    # if fantasy_roster:
+    #     filters["Roster"] = fantasy_roster
+
+    # roster_players = filter_table(DATASETS.roster_players, filters)
+    # roster_players = filter_player_stat_table_colums(roster_players)
+    # f.dataframe(roster_players, height=400)

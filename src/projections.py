@@ -1,6 +1,6 @@
 from datetime import timedelta
 from pandas import DataFrame
-from common.datetime_utils import TODAY
+from common.datetime_utils import TODAY, CURRENTWEEKNUMBER
 from src.schedule import main_schedule
 
 
@@ -65,62 +65,9 @@ def project_player_fantasy_points_per_period(
     )
     return projected_points_per_period
 
-    # # Points per day (this week)
-    # for weekday_number in range(0, 7):
-    #     df[weekday_number] = df.apply(
-    #         lambda x: x["Projected_fantasy_points"]
-    #         if x["DayOfWeek"] == weekday_number
-    #         else None,
-    #         axis=1,
-    #     )
-
-    # cols = [
-    #     "Player",
-    #     "Team",
-    #     "Roster",
-    #     "Projected_fantasy_points",
-    #     "Week",
-    #     0,
-    #     1,
-    #     2,
-    #     3,
-    #     4,
-    #     5,
-    #     6,
-    # ]
-    # df = df[cols].groupby(by=["Player", "Team", "Week", "Roster"]).sum()
-    # df = df.apply(
-    #     lambda x: calculate_projected_points_next_days(x, CURRENTDAYOFWEEK), axis=1
-    # )
-    # logging.critical(df)
-    # exit()
-    # return df
-
-
-def calculate_projected_points_next_days(
-    row: DataFrame, current_day_of_week: int
-) -> DataFrame:
-
-    for day_nr in range(1, 7):
-        col = f"{day_nr}_Days"
-
-        if col not in row.items():
-            row[col] = 0
-
-        for _ in range(current_day_of_week, current_day_of_week + day_nr):
-
-            if _ > 6:
-                continue
-
-            if row[_] > 0:
-                row[col] += row[_]
-
-    row = row.rename({"1_Days": "Today"})
-    return row
-
 
 def main_point_projections():
-    return project_player_fantasy_points_per_period()
+    return project_player_fantasy_points_per_period(CURRENTWEEKNUMBER)
 
 
 if __name__ == "__main__":
