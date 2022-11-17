@@ -2,7 +2,7 @@ import logging
 import os
 from espn_api.basketball import Player
 from pandas import DataFrame, json_normalize, concat, read_csv
-from common.datetime_utils import DATESTAMP
+from common.datetime_utils import CURRENTWEEKNUMBER, DATESTAMP
 from src.rosters import main_free_agent_rosters, main_team_rosters
 from common.utils import DataGetter
 from src.projections import project_player_fantasy_points_per_period
@@ -63,21 +63,33 @@ class PlayerDataGetter(DataGetter):
         return self.df
 
     def add_projected_points_per_period(self) -> DataFrame:
-        projected_points = project_player_fantasy_points_per_period(self.df)
+        projected_points = project_player_fantasy_points_per_period(
+            self.df, CURRENTWEEKNUMBER
+        )
         self.df = self.df.merge(projected_points, how="left", on="Player")
         return self.df
 
 
-def project_avg_fantasy_points(row: DataFrame) -> float:
+def project_avg_fantasy_points(row: DataFrame) -> int:
     points = 0
     counter = 0
-    cols = ["2023_projected.applied_avg", "2022.applied_avg"]
+    # cols = ["2023_projected.applied_avg", "2022.applied_avg"]
+    games_played = 0
+    if "2023.total.GP" in row.keys():
+        games_played = row["2023.total.GP"]
 
-    for col in cols:
-        if col in row.keys():
-            if row[col] > 0:
-                points += row[col]
-                counter += 1
+    point_weights = {
+        "2023_projected.applied_avg": 2,
+        "2022.applied_avg": 2,
+        "2023.applied_avg": games_played,
+        "2023_last_7.applied_avg": games_played,
+        "2023_last_15.applied_avg": games_played / 2,
+    }
+    for stat, weight in point_weights.items():
+        if stat in row.keys():
+            if row[stat] > 0:
+                points += row[stat] * weight
+                counter += weight
 
     try:
         return int(points / counter)
