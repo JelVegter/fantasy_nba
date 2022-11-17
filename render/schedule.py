@@ -1,4 +1,3 @@
-import logging
 import streamlit as st
 from src.league import FANTASY_TEAMS, league
 from render.tables import (
@@ -16,7 +15,7 @@ def app():
     with st.sidebar:
         # Fantasy roster
         fantasy_roster = st.sidebar.selectbox(
-            label="Select Fantasy Team", options=FANTASY_TEAMS, index=6
+            label="Select Fantasy Team", options=FANTASY_TEAMS, index=7
         )
 
         # Show Players, Injured Players
