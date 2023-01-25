@@ -1,0 +1,112 @@
+2023-01-25 07:47:37,373 |  1859 | players.py | <module> | 141 | CRITICAL |              Player  Today  NextTwoDays  ThisWeek  ...  401468874.avg  401468874.total                  _ts                                id
+0       Joel Embiid     56           56       112  ...            NaN              NaN  2023-01-25T07:47:37  ea67fb1c2964e0eb4ef22b4d1e5e5b74
+1     Pascal Siakam     42           42       126  ...            NaN              NaN  2023-01-25T07:47:37  17fd9b2741072dafe98708d4784dc764
+2     Stephen Curry     48           48        96  ...            NaN              NaN  2023-01-25T07:47:37  09d5e48e710ff050465ad8ac1395748b
+3       Rudy Gobert     36           36       108  ...            NaN              NaN  2023-01-25T07:47:37  acd10c3c8ce353ecb34caeccbc035fe3
+4     Jalen Brunson      0           41        82  ...            NaN              NaN  2023-01-25T07:47:37  d20390ff6ff0827853a1c0e19c8e3b93
+..              ...    ...          ...       ...  ...            ...              ...                  ...                               ...
+45  Trey Murphy III     26           26        78  ...            NaN              NaN  2023-01-25T07:47:37  bd9df1942710c953ef653b1f4f96b78d
+46  De'Andre Hunter     25           25        50  ...            NaN              NaN  2023-01-25T07:47:37  d8b4d7389e9a15a081a5e25c822da98d
+47   Jalen Williams     26           26        52  ...            NaN              NaN  2023-01-25T07:47:37  6a066f6b5675c799bff1dad67b2dd538
+48       Seth Curry     21           42        63  ...            NaN              NaN  2023-01-25T07:47:37  69de136ddd18f05a21666e2ae8e6f9f8
+49       Lonzo Ball      0           33        66  ...            NaN              NaN  2023-01-25T07:47:37  0f22ac0f86508e4a6884de3fa6a2a330
+
+[160 rows x 346 columns]
+2023-01-25 07:54:11,124 |  2913 | players.py | <module> | 141 | CRITICAL |              Player  Today  NextTwoDays  ThisWeek  ...  401468874.avg  401468874.total                  _ts                                id
+0       Joel Embiid     56           56       112  ...            NaN              NaN  2023-01-25T07:54:11  ea67fb1c2964e0eb4ef22b4d1e5e5b74
+1     Pascal Siakam     42           42       126  ...            NaN              NaN  2023-01-25T07:54:11  17fd9b2741072dafe98708d4784dc764
+2     Stephen Curry     48           48        96  ...            NaN              NaN  2023-01-25T07:54:11  09d5e48e710ff050465ad8ac1395748b
+3       Rudy Gobert     36           36       108  ...            NaN              NaN  2023-01-25T07:54:11  acd10c3c8ce353ecb34caeccbc035fe3
+4     Jalen Brunson      0           41        82  ...            NaN              NaN  2023-01-25T07:54:11  d20390ff6ff0827853a1c0e19c8e3b93
+..              ...    ...          ...       ...  ...            ...              ...                  ...                               ...
+45  Trey Murphy III     26           26        78  ...            NaN              NaN  2023-01-25T07:54:11  bd9df1942710c953ef653b1f4f96b78d
+46  De'Andre Hunter     25           25        50  ...            NaN              NaN  2023-01-25T07:54:11  d8b4d7389e9a15a081a5e25c822da98d
+47   Jalen Williams     26           26        52  ...            NaN              NaN  2023-01-25T07:54:11  6a066f6b5675c799bff1dad67b2dd538
+48       Seth Curry     21           42        63  ...            NaN              NaN  2023-01-25T07:54:11  69de136ddd18f05a21666e2ae8e6f9f8
+49       Lonzo Ball      0           33        66  ...            NaN              NaN  2023-01-25T07:54:11  0f22ac0f86508e4a6884de3fa6a2a330
+
+[160 rows x 346 columns]
+2023-01-25 08:21:22,602 |  7592 | players.py | <module> | 144 | CRITICAL |              player  today  nexttwodays  thisweek  ...  401468874.avg  401468874.total                  _ts                                id
+0       Joel Embiid     56           56       112  ...            NaN              NaN  2023-01-25T08:21:22  6f655cb4b81551c01658455741e24653
+1     Pascal Siakam     42           42       126  ...            NaN              NaN  2023-01-25T08:21:22  272c8b13a7d1d9f0469978ebbb59a824
+2     Stephen Curry     48           48        96  ...            NaN              NaN  2023-01-25T08:21:22  9f83e62e5eca8608c951f48927c2fc4b
+3       Rudy Gobert     36           36       108  ...            NaN              NaN  2023-01-25T08:21:22  d0ab84b31ba7862c2391860e214153c3
+4     Jalen Brunson      0           41        82  ...            NaN              NaN  2023-01-25T08:21:22  3f763d03de4d5ef15a2d1e51c77f590d
+..              ...    ...          ...       ...  ...            ...              ...                  ...                               ...
+45  Trey Murphy III     26           26        78  ...            NaN              NaN  2023-01-25T08:21:22  2421dc1293d786f0c5a8fde59661378d
+46  De'Andre Hunter     25           25        50  ...            NaN              NaN  2023-01-25T08:21:22  87ef944e8f2c603ec5ffba497cfb217d
+47   Jalen Williams     26           26        52  ...            NaN              NaN  2023-01-25T08:21:22  80fdaa61b1219cc7ea1e3099c84e6a39
+48       Seth Curry     21           42        63  ...            NaN              NaN  2023-01-25T08:21:22  f44fcf459ba64fe6c081cc267f23fa3c
+49       Lonzo Ball      0           33        66  ...            NaN              NaN  2023-01-25T08:21:22  9c6c363d1c1e165fd4906bc980340065
+
+[160 rows x 346 columns]
+2023-01-25 08:22:25,262 |  7840 | players.py | <module> | 144 | CRITICAL |              player  today  nexttwodays  thisweek  ...  401468874.avg  401468874.total                  _ts                                id
+0       Joel Embiid     56           56       112  ...            NaN              NaN  2023-01-25T08:22:25  6f655cb4b81551c01658455741e24653
+1     Pascal Siakam     42           42       126  ...            NaN              NaN  2023-01-25T08:22:25  272c8b13a7d1d9f0469978ebbb59a824
+2     Stephen Curry     48           48        96  ...            NaN              NaN  2023-01-25T08:22:25  9f83e62e5eca8608c951f48927c2fc4b
+3       Rudy Gobert     36           36       108  ...            NaN              NaN  2023-01-25T08:22:25  d0ab84b31ba7862c2391860e214153c3
+4     Jalen Brunson      0           41        82  ...            NaN              NaN  2023-01-25T08:22:25  3f763d03de4d5ef15a2d1e51c77f590d
+..              ...    ...          ...       ...  ...            ...              ...                  ...                               ...
+45  Trey Murphy III     26           26        78  ...            NaN              NaN  2023-01-25T08:22:25  2421dc1293d786f0c5a8fde59661378d
+46  De'Andre Hunter     25           25        50  ...            NaN              NaN  2023-01-25T08:22:25  87ef944e8f2c603ec5ffba497cfb217d
+47   Jalen Williams     26           26        52  ...            NaN              NaN  2023-01-25T08:22:25  80fdaa61b1219cc7ea1e3099c84e6a39
+48       Seth Curry     21           42        63  ...            NaN              NaN  2023-01-25T08:22:25  f44fcf459ba64fe6c081cc267f23fa3c
+49       Lonzo Ball      0           33        66  ...            NaN              NaN  2023-01-25T08:22:25  9c6c363d1c1e165fd4906bc980340065
+
+[160 rows x 346 columns]
+2023-01-25 08:23:56,604 |  8068 | players.py | <module> | 144 | CRITICAL |              player  today  nexttwodays  thisweek  ...  401468874.avg  401468874.total                  _ts                                id
+0       Joel Embiid      0            0         0  ...            NaN              NaN  2023-01-25T08:23:56  6f655cb4b81551c01658455741e24653
+1     Pascal Siakam      0            0         0  ...            NaN              NaN  2023-01-25T08:23:56  272c8b13a7d1d9f0469978ebbb59a824
+2     Stephen Curry      0            0         0  ...            NaN              NaN  2023-01-25T08:23:56  9f83e62e5eca8608c951f48927c2fc4b
+3       Rudy Gobert      0            0         0  ...            NaN              NaN  2023-01-25T08:23:56  d0ab84b31ba7862c2391860e214153c3
+4     Jalen Brunson      0            0         0  ...            NaN              NaN  2023-01-25T08:23:56  3f763d03de4d5ef15a2d1e51c77f590d
+..              ...    ...          ...       ...  ...            ...              ...                  ...                               ...
+45  Trey Murphy III      0            0         0  ...            NaN              NaN  2023-01-25T08:23:56  2421dc1293d786f0c5a8fde59661378d
+46  De'Andre Hunter      0            0         0  ...            NaN              NaN  2023-01-25T08:23:56  87ef944e8f2c603ec5ffba497cfb217d
+47   Jalen Williams      0            0         0  ...            NaN              NaN  2023-01-25T08:23:56  80fdaa61b1219cc7ea1e3099c84e6a39
+48       Seth Curry      0            0         0  ...            NaN              NaN  2023-01-25T08:23:56  f44fcf459ba64fe6c081cc267f23fa3c
+49       Lonzo Ball      0            0         0  ...            NaN              NaN  2023-01-25T08:23:56  9c6c363d1c1e165fd4906bc980340065
+
+[160 rows x 346 columns]
+2023-01-25 08:26:55,835 |  8479 | players.py | <module> | 144 | CRITICAL |              player  today  nexttwodays  thisweek  ...  401468874.avg  401468874.total                  _ts                                id
+0       Joel Embiid     56           56       112  ...            NaN              NaN  2023-01-25T08:26:55  6f655cb4b81551c01658455741e24653
+1     Pascal Siakam     42           42       126  ...            NaN              NaN  2023-01-25T08:26:55  272c8b13a7d1d9f0469978ebbb59a824
+2     Stephen Curry     48           48        96  ...            NaN              NaN  2023-01-25T08:26:55  9f83e62e5eca8608c951f48927c2fc4b
+3       Rudy Gobert     36           36       108  ...            NaN              NaN  2023-01-25T08:26:55  d0ab84b31ba7862c2391860e214153c3
+4     Jalen Brunson      0           41        82  ...            NaN              NaN  2023-01-25T08:26:55  3f763d03de4d5ef15a2d1e51c77f590d
+..              ...    ...          ...       ...  ...            ...              ...                  ...                               ...
+45  Trey Murphy III     26           26        78  ...            NaN              NaN  2023-01-25T08:26:55  2421dc1293d786f0c5a8fde59661378d
+46  De'Andre Hunter     25           25        50  ...            NaN              NaN  2023-01-25T08:26:55  87ef944e8f2c603ec5ffba497cfb217d
+47   Jalen Williams     26           26        52  ...            NaN              NaN  2023-01-25T08:26:55  80fdaa61b1219cc7ea1e3099c84e6a39
+48       Seth Curry     21           42        63  ...            NaN              NaN  2023-01-25T08:26:55  f44fcf459ba64fe6c081cc267f23fa3c
+49       Lonzo Ball      0           33        66  ...            NaN              NaN  2023-01-25T08:26:55  9c6c363d1c1e165fd4906bc980340065
+
+[160 rows x 346 columns]
+2023-01-25 08:29:04,879 |  8765 | players.py | <module> | 144 | CRITICAL |     2023.applied_total  2023.applied_avg  2023.avg.pts  2023.avg.blk  ...  thisweek  nextweek                  _ts                                id
+0               1915.0             56.32     33.588235      1.705882  ...       112       224  2023-01-25T08:29:04  6f655cb4b81551c01658455741e24653
+1               1713.0             45.08     25.210526      0.605263  ...       126       168  2023-01-25T08:29:04  272c8b13a7d1d9f0469978ebbb59a824
+2               1644.0             51.38     29.187500      0.406250  ...        96       192  2023-01-25T08:29:04  9f83e62e5eca8608c951f48927c2fc4b
+3               1313.0             32.83     13.325000      1.325000  ...       108       144  2023-01-25T08:29:04  d0ab84b31ba7862c2391860e214153c3
+4               1759.0             39.09     22.488889      0.244444  ...        82       164  2023-01-25T08:29:04  3f763d03de4d5ef15a2d1e51c77f590d
+..                 ...               ...           ...           ...  ...       ...       ...                  ...                               ...
+45              1128.0             25.64     12.750000      0.500000  ...        78       104  2023-01-25T08:29:04  2421dc1293d786f0c5a8fde59661378d
+46               895.0             22.95     15.820513      0.205128  ...        50       100  2023-01-25T08:29:04  87ef944e8f2c603ec5ffba497cfb217d
+47              1062.0             24.70     11.511628      0.534884  ...        52        78  2023-01-25T08:29:04  80fdaa61b1219cc7ea1e3099c84e6a39
+48               643.0             18.91     10.176471      0.205882  ...        63        63  2023-01-25T08:29:04  f44fcf459ba64fe6c081cc267f23fa3c
+49                 0.0              0.00           NaN           NaN  ...        66        99  2023-01-25T08:29:04  9c6c363d1c1e165fd4906bc980340065
+
+[160 rows x 346 columns]
+2023-01-25 08:29:38,593 |  8873 | players.py | <module> | 144 | CRITICAL |              player  today  nexttwodays  thisweek  ...  401468874.avg  401468874.total                  _ts                                id
+0       Joel Embiid     56           56       112  ...            NaN              NaN  2023-01-25T08:29:38  6f655cb4b81551c01658455741e24653
+1     Pascal Siakam     42           42       126  ...            NaN              NaN  2023-01-25T08:29:38  272c8b13a7d1d9f0469978ebbb59a824
+2     Stephen Curry     48           48        96  ...            NaN              NaN  2023-01-25T08:29:38  9f83e62e5eca8608c951f48927c2fc4b
+3       Rudy Gobert     36           36       108  ...            NaN              NaN  2023-01-25T08:29:38  d0ab84b31ba7862c2391860e214153c3
+4     Jalen Brunson      0           41        82  ...            NaN              NaN  2023-01-25T08:29:38  3f763d03de4d5ef15a2d1e51c77f590d
+..              ...    ...          ...       ...  ...            ...              ...                  ...                               ...
+45  Trey Murphy III     26           26        78  ...            NaN              NaN  2023-01-25T08:29:38  2421dc1293d786f0c5a8fde59661378d
+46  De'Andre Hunter     25           25        50  ...            NaN              NaN  2023-01-25T08:29:38  87ef944e8f2c603ec5ffba497cfb217d
+47   Jalen Williams     26           26        52  ...            NaN              NaN  2023-01-25T08:29:38  80fdaa61b1219cc7ea1e3099c84e6a39
+48       Seth Curry     21           42        63  ...            NaN              NaN  2023-01-25T08:29:38  f44fcf459ba64fe6c081cc267f23fa3c
+49       Lonzo Ball      0           33        66  ...            NaN              NaN  2023-01-25T08:29:38  9c6c363d1c1e165fd4906bc980340065
+
+[160 rows x 346 columns]

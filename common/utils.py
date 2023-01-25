@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class DataGetter(ABC):
+class ETL(ABC):
     @abstractmethod
     def fetch_data():
         ...
@@ -12,14 +12,6 @@ class DataGetter(ABC):
 
     @abstractmethod
     def transform_data():
-        ...
-
-    @abstractmethod
-    def export_data():
-        ...
-
-    @abstractmethod
-    def read_data():
         ...
 
     @abstractmethod

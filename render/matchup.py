@@ -23,22 +23,22 @@ def app():
         week = b.selectbox(label="Week", options=["This Week", "Next Week"])
 
         if week == "This Week":
-            week = "ThisWeek"
+            week = "thisweek"
         elif week == "Next Week":
-            week = "NextWeek"
+            week = "nextweek"
         else:
             raise Exception("Invalid week selected")
 
     st.title("Matchup")
     filters = {}
     if injury:
-        filters["Status"] = injury
+        filters["status"] = injury
 
     c, d = st.columns(2)
     c.title(fantasy_roster_1)
     players_roster_1 = filter_table(DATASETS.roster_players, filters)
     players_roster_1 = players_roster_1.loc[
-        players_roster_1["Roster"] == fantasy_roster_1
+        players_roster_1["roster"] == fantasy_roster_1
     ]
     players_roster_1 = filter_player_stat_table_colums(players_roster_1)
     c.dataframe(players_roster_1, height=400, width=1050)
@@ -49,7 +49,7 @@ def app():
     d.title(fantasy_roster_2)
     players_roster_2 = filter_table(DATASETS.roster_players, filters)
     players_roster_2 = players_roster_2.loc[
-        players_roster_2["Roster"] == fantasy_roster_2
+        players_roster_2["roster"] == fantasy_roster_2
     ]
     players_roster_2 = filter_player_stat_table_colums(players_roster_2)
     d.dataframe(players_roster_2, height=400, width=1050)

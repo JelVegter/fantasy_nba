@@ -2,79 +2,81 @@ import logging
 from pandas import DataFrame
 from common.datetime_utils import DATESTAMP
 from common.constants import TEAMS
-from src.schedule import main_schedule
+from common.sqlite import sqlite3_conn
+from src.schedule import get_schedule
 
 
 def find_opponent(row, day_of_week):
     opponent = None
-    if row["DayOfWeek"] == day_of_week:
-        if row["Side"] == "Home":
-            opponent = "@" + row["Opponent"]
+    if row["dayofweek"] == day_of_week:
+        if row["side"] == "home":
+            opponent = "@" + row["opponent"]
         else:
-            opponent = row["Opponent"]
+            opponent = row["opponent"]
     return opponent
 
 
 def transpose_schedule(df: DataFrame) -> DataFrame:
     for d in range(0, 7):
         df[d] = df.apply(lambda x: find_opponent(x, d), axis=1)
-    df["GameCount"] = 1
+    df["gamecount"] = 1
     return df
 
 
 def create_week_view(df: DataFrame) -> DataFrame:
     df = df.rename(
         columns={
-            0: "Monday",
-            1: "Tuesday",
-            2: "Wednesday",
-            3: "Thursday",
-            4: "Friday",
-            5: "Saturday",
-            6: "Sunday",
+            0: "monday",
+            1: "tuesday",
+            2: "wednesday",
+            3: "thursday",
+            4: "friday",
+            5: "saturday",
+            6: "sunday",
         }
     )
+
     cols = [
-        "Week",
-        "Team",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday",
-        "GameCount",
+        "week",
+        "team",
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday",
+        "gamecount",
     ]
     df = df[cols]
     week_view = DataFrame()
     records = []
 
     for team in TEAMS.values():
-        _df = df.loc[df["Team"] == team]
+        _df = df.loc[df["team"] == team]
 
-        for week in df["Week"].unique():
-            __df = _df.loc[_df["Week"] == week]
-            monday = __df["Monday"].fillna("").max()
-            tuesday = __df["Tuesday"].fillna("").max()
-            wednesday = __df["Wednesday"].fillna("").max()
-            thursday = __df["Thursday"].fillna("").max()
-            friday = __df["Friday"].fillna("").max()
-            saturday = __df["Saturday"].fillna("").max()
-            sunday = __df["Sunday"].fillna("").max()
-            game_count = __df["GameCount"].sum()
+        for week in df["week"].unique():
+            __df = _df.loc[_df["week"] == week]
+            monday = __df["monday"].fillna("").max()
+            tuesday = __df["tuesday"].fillna("").max()
+            wednesday = __df["wednesday"].fillna("").max()
+            thursday = __df["thursday"].fillna("").max()
+            friday = __df["friday"].fillna("").max()
+            saturday = __df["saturday"].fillna("").max()
+            sunday = __df["sunday"].fillna("").max()
+            game_count = __df["gamecount"].sum()
 
             record = {
-                "Week": week,
-                "Team": team,
-                "Monday": monday,
-                "Tuesday": tuesday,
-                "Wednesday": wednesday,
-                "Thursday": thursday,
-                "Friday": friday,
-                "Saturday": saturday,
-                "Sunday": sunday,
-                "GameCount": game_count,
+                "week": week,
+                "team": team,
+                "monday": monday,
+                "tuesday": tuesday,
+                "wednesday": wednesday,
+                "thursday": thursday,
+                "friday": friday,
+                "saturday": saturday,
+                "sunday": sunday,
+                "gamecount": game_count,
             }
             records.append(record)
 
@@ -91,10 +93,15 @@ def main_week_vw(debug: bool = False) -> DataFrame:
     if debug:
         logging.basicConfig(level=logging.DEBUG)
 
-    df = main_schedule()
+    df = get_schedule()
     df = transpose_schedule(df)
     df = create_week_view(df)
-    export_game_schedule(df)
+    sqlite3_conn.df_to_sql_table(
+        df=df,
+        table="week_vw",
+        auto_id_cols=["week", "team"],
+        if_exists="replace",
+    )
     return df
 
 

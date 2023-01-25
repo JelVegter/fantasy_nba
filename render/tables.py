@@ -23,7 +23,7 @@ def highlight_teams_playing(value: str) -> str:
 
 def format_week_schedule_table(df: DataFrame) -> DataFrame:
     df = (
-        df.set_index("Team")
+        df.set_index("team")
         .style.set_table_styles(styles)
         .set_caption("Hover to highlight.")
         .applymap(highlight_teams_playing)
@@ -32,17 +32,17 @@ def format_week_schedule_table(df: DataFrame) -> DataFrame:
 
 
 def filter_player_stat_table_colums(df: DataFrame) -> DataFrame:
-    df = df.rename(columns={"Projected_fantasy_points": "Points"})
+    df = df.rename(columns={"projected_fantasy_points": "points"})
     cols = [
-        "Player",
-        "Team",
-        "Position",
-        "Status",
-        "Points",
-        "Today",
-        "NextThreeDays",
-        "ThisWeek",
-        "NextWeek",
+        "player",
+        "team",
+        "position",
+        "status",
+        "points",
+        "today",
+        "nexttwodays",
+        "thisweek",
+        "nextweek",
     ]
     return df[cols]
 
@@ -65,7 +65,7 @@ def filter_table(
                     df = df.loc[df[filter] == filters[filter]]
 
                 elif isinstance(filters[filter], list):
-                    df["Team"] = df["Team"].astype(str)
+                    df["team"] = df["team"].astype(str)
                     df = df.loc[df[filter].isin(filters[filter])]
                 else:
                     raise Exception("Filter type not accepted")

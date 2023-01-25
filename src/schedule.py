@@ -8,7 +8,8 @@ from logging.config import fileConfig
 
 from common.datetime_utils import DATESTAMP
 from common.constants import MONTHS, TEAMS
-from common.utils import DataGetter
+from common.sqlite import sqlite3_conn
+from common.utils import ETL
 from src.league import YEAR
 
 fileConfig("logging.ini")
@@ -31,9 +32,8 @@ async def fetch_api_data(urls: list) -> tuple:
     return responses
 
 
-class ScheduleDataGetter(DataGetter):
-    def __init__(self, file_path) -> None:
-        self.file_path = file_path
+class ScheduleETL(ETL):
+    def __init__(self) -> None:
         super().__init__()
 
     def fetch_data(self, year: int, months: list[str]) -> DataFrame:
@@ -52,49 +52,34 @@ class ScheduleDataGetter(DataGetter):
         return self.df
 
     def clean_data(self) -> DataFrame:
-        self.df["Date"] = to_datetime(self.df["Date"], errors="coerce").dt.tz_localize(
+        self.df.columns = self.df.columns.str.lower()
+        self.df["date"] = to_datetime(self.df["date"], errors="coerce").dt.tz_localize(
             tz="US/Eastern"
         )
-        self.df["Week"] = self.df["Date"].dt.isocalendar().week
-        self.df["DayOfWeek"] = self.df["Date"].dt.dayofweek
-        self.df["Date"] = self.df["Date"].dt.date
-        self.df["Visitor"] = self.df["Visitor/Neutral"].map(abbreviate_team)
-        self.df["Home"] = self.df["Home/Neutral"].map(abbreviate_team)
-        cols = ["Date", "Week", "DayOfWeek", "Start (ET)", "Visitor", "Home"]
-        self.df = self.df[cols]
+        self.df["week"] = self.df["date"].dt.isocalendar().week
+        self.df["dayofweek"] = self.df["date"].dt.dayofweek
+        self.df["date"] = self.df["date"].dt.date
+        self.df["visitor"] = self.df["visitor/neutral"].map(abbreviate_team)
+        self.df["home"] = self.df["home/neutral"].map(abbreviate_team)
         return self.df
 
     def transform_data(self):
-        self.df["Matchup"] = self.df.apply(
-            lambda x: x["Visitor"] + "@" + x["Home"], axis=1
+        cols = ["date", "week", "dayofweek", "start (et)", "visitor", "home"]
+        self.df = self.df[cols]
+        self.df["matchup"] = self.df.apply(
+            lambda x: x["visitor"] + "@" + x["home"], axis=1
         )
-        home = self.df.rename(columns={"Home": "Team", "Visitor": "Opponent"})
-        home["Side"] = "Home"
-        visitor = self.df.rename(columns={"Visitor": "Team", "Home": "Opponent"})
-        visitor["Side"] = "Visitor"
+        home = self.df.rename(columns={"home": "team", "visitor": "opponent"})
+        home["side"] = "home"
+        visitor = self.df.rename(columns={"visitor": "team", "home": "opponent"})
+        visitor["side"] = "visitor"
         self.df = concat([home, visitor])
         return self.df
 
-    def export_data(self) -> DataFrame:
-        self.df.to_csv(self.file_path)
-        return self.df
-
-    def read_data(self) -> DataFrame:
-        self.df = read_csv(self.file_path, index_col=[0])
-        return self.df
-
     def get_data(self, year: int, months: list[str]) -> DataFrame:
-        if os.path.isfile(self.file_path):
-            logging.info(f"Reading data from: {self.file_path}")
-            self.df = self.read_data()
-            self.df["Date"] = to_datetime(self.df["Date"]).dt.date
-            return self.df
-
-        logging.info("No existing Schedule dataset found. Fetching data...")
         self.fetch_data(year=year, months=months)
         self.clean_data()
         self.transform_data()
-        self.export_data()
         return self.df
 
 
@@ -107,9 +92,19 @@ def main_schedule(debug: bool = False):
     if debug:
         logging.basicConfig(level=logging.DEBUG)
 
-    schedule = ScheduleDataGetter(file_path=f"data/schedule/schedule_{DATESTAMP}.csv")
+    schedule = ScheduleETL()
     schedule.get_data(year=YEAR, months=MONTHS)
+    sqlite3_conn.df_to_sql_table(
+        df=schedule.df,
+        table="schedule",
+        auto_id_cols=["date", "matchup"],
+        if_exists="replace",
+    )
     return schedule.df
+
+
+def get_schedule() -> DataFrame:
+    return sqlite3_conn.sql_table_to_df("schedule", date_cols=["date"])
 
 
 if __name__ == "__main__":

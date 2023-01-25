@@ -36,7 +36,7 @@ def app():
         # Period
         e, f = st.columns(2)
         positions = set([fa.position for fa in league.free_agents()])
-        position = e.multiselect(label="Position", options=positions)
+        position = e.multiselect(label="position", options=positions)
 
         week_numbers = [_ for _ in range(1, 52)]
         week = f.selectbox(
@@ -52,32 +52,33 @@ def app():
     st.title("Player schedule")
     schedule_filters = {}
     if week:
-        schedule_filters["Week"] = week
+        schedule_filters["week"] = week
 
     if teams:
-        schedule_filters["Team"] = teams
+        schedule_filters["team"] = teams
 
     free_agent_filters = {}
     if teams:
-        free_agent_filters["Team"] = teams
+        free_agent_filters["team"] = teams
 
     if free_agent:
-        free_agent_filters["Player"] = free_agent
+        free_agent_filters["player"] = free_agent
 
     if position:
-        free_agent_filters["Position"] = position
+        free_agent_filters["position"] = position
 
     if injury:
-        free_agent_filters["Status"] = injury
+        free_agent_filters["status"] = injury
 
     ###
     week_schedule = filter_table(DATASETS.week_vw, schedule_filters)
     week_schedule.reset_index(inplace=True)
+    week_schedule = week_schedule.drop(columns=["id", "_ts"])
     free_agents = filter_table(DATASETS.free_agents, free_agent_filters, nr_of_rows)
     free_agents = filter_player_stat_table_colums(free_agents)
     # free_agents = free_agents.set_index("Team")
     # free_agent_schedule = free_agents.join(week_schedule, how="left")
-    free_agent_schedule = free_agents.merge(week_schedule, how="left", on="Team")
+    free_agent_schedule = free_agents.merge(week_schedule, how="left", on="team")
     # free_agent_schedule = format_week_schedule_table(free_agent_schedule)
 
     st.dataframe(free_agent_schedule, height=400, width=1050)
