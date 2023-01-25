@@ -52,12 +52,13 @@ def app():
     st.title("Schedule")
     filters = {}
     if week:
-        filters["Week"] = week
+        filters["week"] = week
 
     if teams:
-        filters["Team"] = teams
+        filters["team"] = teams
 
     week_schedule = filter_table(DATASETS.week_vw, filters)
+    week_schedule = week_schedule.drop(columns=["id", "_ts"])
     week_schedule = format_week_schedule_table(week_schedule)
     st.dataframe(week_schedule, height=400, width=1050)
 
@@ -65,16 +66,16 @@ def app():
     e.title("Free Agents")
     filters = {}
     if teams:
-        filters["Team"] = teams
+        filters["team"] = teams
 
     if free_agent:
-        filters["Player"] = free_agent
+        filters["player"] = free_agent
 
     if position:
-        filters["Position"] = position
+        filters["position"] = position
 
     if injury:
-        filters["Status"] = injury
+        filters["status"] = injury
 
     free_agents = filter_table(DATASETS.free_agents, filters, nr_of_rows)
     free_agents = filter_player_stat_table_colums(free_agents)
@@ -83,7 +84,7 @@ def app():
     f.title("Roster Players")
     filters = {}
     if fantasy_roster:
-        filters["Roster"] = fantasy_roster
+        filters["roster"] = fantasy_roster
 
     roster_players = filter_table(DATASETS.roster_players, filters)
     roster_players = filter_player_stat_table_colums(roster_players)

@@ -1,0 +1,76 @@
+2022-10-28 08:58:03,828 |  10634 | __init__.py | _maybe_print_use_warning | 498 | WARNING | 
+  [33m[1mWarning:[0m to view this Streamlit app on a browser, run it with the following
+  command:
+
+    streamlit run render/main.py [ARGUMENTS]
+2022-10-28 08:58:25,980 |  10690 | players.py | <module> | 131 | CRITICAL |     2023.applied_total  2023.applied_avg  2023.avg.PTS  2023.avg.BLK  2023.avg.STL  ...  401468222.total  Today  NextThreeDays  ThisWeek  NextWeek
+0                223.0             44.60         27.60          1.40          0.40  ...              NaN     52            104       104       156
+1                250.0             50.00         25.20          0.60          1.20  ...              NaN     43             43        43       172
+2                205.0             51.25         30.25          0.25          1.50  ...              NaN      0             88        88       132
+3                179.0             35.80         13.60          1.60          0.60  ...              NaN     41             82        82       123
+4                181.0             45.25         20.00          0.25          1.00  ...              NaN     35             70        70       105
+..                 ...               ...           ...           ...           ...  ...              ...    ...            ...       ...       ...
+45                59.0             14.75          7.75          0.00          0.75  ...              NaN      0             25        25       100
+46                85.0             21.25          5.25          1.00          2.00  ...              NaN     26             52        52        78
+47                84.0             21.00          8.00          0.25          0.00  ...              NaN     25             50        50        75
+48               134.0             26.80         11.80          0.20          1.20  ...              NaN     22             44        44        44
+49                24.0              4.80          2.80          0.00          0.20  ...              NaN     26             52        52        78
+
+[159 rows x 332 columns]
+2022-10-28 09:07:57,229 |  11078 | players.py | <module> | 134 | CRITICAL |     2023.applied_total  2023.applied_avg  2023.avg.PTS  2023.avg.BLK  2023.avg.STL  ...  401468222.total  Today  NextThreeDays  ThisWeek  NextWeek
+0                223.0             44.60         27.60          1.40          0.40  ...              NaN     52            104       104       156
+1                250.0             50.00         25.20          0.60          1.20  ...              NaN     43             43        43       172
+2                205.0             51.25         30.25          0.25          1.50  ...              NaN      0             88        88       132
+3                179.0             35.80         13.60          1.60          0.60  ...              NaN     41             82        82       123
+4                181.0             45.25         20.00          0.25          1.00  ...              NaN     35             70        70       105
+..                 ...               ...           ...           ...           ...  ...              ...    ...            ...       ...       ...
+45                59.0             14.75          7.75          0.00          0.75  ...              NaN      0             25        25       100
+46                85.0             21.25          5.25          1.00          2.00  ...              NaN     26             52        52        78
+47                84.0             21.00          8.00          0.25          0.00  ...              NaN     25             50        50        75
+48               134.0             26.80         11.80          0.20          1.20  ...              NaN     22             44        44        44
+49                24.0              4.80          2.80          0.00          0.20  ...              NaN     26             52        52        78
+
+[159 rows x 332 columns]
+2022-10-28 09:11:53,831 |  11442 | __init__.py | _maybe_print_use_warning | 498 | WARNING | 
+  [33m[1mWarning:[0m to view this Streamlit app on a browser, run it with the following
+  command:
+
+    streamlit run render/main.py [ARGUMENTS]
+2022-10-28 09:12:10,787 |  11499 | players.py | <module> | 137 | CRITICAL |     2023.applied_total  2023.applied_avg  2023.avg.PTS  2023.avg.BLK  2023.avg.STL  ...  401468222.total  Today  NextThreeDays  ThisWeek  NextWeek
+0                223.0             44.60         27.60          1.40          0.40  ...              NaN     52            104       104       156
+1                250.0             50.00         25.20          0.60          1.20  ...              NaN     43             43        43       172
+2                205.0             51.25         30.25          0.25          1.50  ...              NaN      0             88        88       132
+3                179.0             35.80         13.60          1.60          0.60  ...              NaN     41             82        82       123
+4                181.0             45.25         20.00          0.25          1.00  ...              NaN     35             70        70       105
+..                 ...               ...           ...           ...           ...  ...              ...    ...            ...       ...       ...
+45                59.0             14.75          7.75          0.00          0.75  ...              NaN      0             25        25       100
+46                85.0             21.25          5.25          1.00          2.00  ...              NaN     26             52        52        78
+47                84.0             21.00          8.00          0.25          0.00  ...              NaN     25             50        50        75
+48               134.0             26.80         11.80          0.20          1.20  ...              NaN     22             44        44        44
+49                24.0              4.80          2.80          0.00          0.20  ...              NaN     26             52        52        78
+
+[159 rows x 332 columns]
+2022-10-28 09:12:29,390 |  11579 | players.py | <module> | 137 | CRITICAL |     2023.applied_total  2023.applied_avg  2023.avg.PTS  2023.avg.BLK  2023.avg.STL  ...  401468222.total  Today  NextThreeDays  ThisWeek  NextWeek
+0                223.0             44.60         27.60          1.40          0.40  ...              NaN     52            104       104       156
+1                250.0             50.00         25.20          0.60          1.20  ...              NaN     43             43        43       172
+2                205.0             51.25         30.25          0.25          1.50  ...              NaN      0             88        88       132
+3                179.0             35.80         13.60          1.60          0.60  ...              NaN     41             82        82       123
+4                181.0             45.25         20.00          0.25          1.00  ...              NaN     35             70        70       105
+..                 ...               ...           ...           ...           ...  ...              ...    ...            ...       ...       ...
+45                59.0             14.75          7.75          0.00          0.75  ...              NaN      0             25        25       100
+46                85.0             21.25          5.25          1.00          2.00  ...              NaN     26             52        52        78
+47                84.0             21.00          8.00          0.25          0.00  ...              NaN     25             50        50        75
+48               134.0             26.80         11.80          0.20          1.20  ...              NaN     22             44        44        44
+49                24.0              4.80          2.80          0.00          0.20  ...              NaN     26             52        52        78
+
+[159 rows x 332 columns]
+2022-10-28 09:29:39,978 |  13092 | __init__.py | _maybe_print_use_warning | 498 | WARNING | 
+  [33m[1mWarning:[0m to view this Streamlit app on a browser, run it with the following
+  command:
+
+    streamlit run render/main.py [ARGUMENTS]
+2022-10-28 09:29:58,005 |  13208 | __init__.py | _maybe_print_use_warning | 498 | WARNING | 
+  [33m[1mWarning:[0m to view this Streamlit app on a browser, run it with the following
+  command:
+
+    streamlit run render/main.py [ARGUMENTS]

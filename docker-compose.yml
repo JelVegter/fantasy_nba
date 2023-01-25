@@ -1,0 +1,14 @@
+version: "2.1"
+
+services:
+  db:
+    container_name: sqlite3_container_fantasy_nba
+    image: nouchka/sqlite3:latest
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./db:/root/db/
+    ports:
+      - 5003:5003
+    restart: unless-stopped
+

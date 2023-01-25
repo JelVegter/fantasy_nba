@@ -2,10 +2,10 @@ import logging
 from src.league import league, refresh_league
 from espn_api.basketball import League
 from pandas import DataFrame
-from common.utils import DataGetter
+from common.utils import ETL
 
 
-class RosterDataGetter(DataGetter):
+class RosterETL(ETL):
     def __init__(self, league: League, free_agents: bool = False) -> None:
         self.free_agents = free_agents
         self.league = league
@@ -30,14 +30,7 @@ class RosterDataGetter(DataGetter):
     def transform_data():
         ...
 
-    def export_data(self):
-        ...
-
-    def read_data(self):
-        ...
-
     def get_data(self):
-        logging.info("Creating Player data file")
         self.fetch_data()
         return self.df
 
@@ -47,7 +40,7 @@ def main_team_rosters(debug: bool = False):
         logging.basicConfig(level=logging.DEBUG)
 
     league = refresh_league()
-    roster = RosterDataGetter(league=league)
+    roster = RosterETL(league=league)
     roster.get_data()
     return roster.df
 
@@ -56,7 +49,7 @@ def main_free_agent_rosters(debug: bool = False):
     if debug:
         logging.basicConfig(level=logging.DEBUG)
 
-    roster = RosterDataGetter(
+    roster = RosterETL(
         league=league,
         free_agents=True,
     )
