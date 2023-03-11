@@ -1,8 +1,7 @@
 import asyncio
 import aiohttp
 import requests
-from pandas import DataFrame, read_html, concat, to_datetime, read_csv
-import os.path
+from pandas import DataFrame, read_html, concat, to_datetime
 import logging
 from logging.config import fileConfig
 
@@ -18,16 +17,13 @@ logger = logging.getLogger("dev")
 
 async def fetch(session, url: str):
     async with session.get(url, ssl=False) as response:
-        data = await response.text()
-        return data
+        return await response.text()
 
 
 async def fetch_api_data(urls: list) -> tuple:
     logging.info("Fetching api data...")
     async with aiohttp.ClientSession() as session:
-        tasks = []
-        for url in urls:
-            tasks.append(fetch(session, url))
+        tasks = [fetch(session, url) for url in urls]
         responses = await asyncio.gather(*tasks, return_exceptions=False)
     return responses
 

@@ -59,25 +59,24 @@ def filter_table(
         raise Exception(message)
 
     if filters:
-        for filter in filters.keys():
+        for filter, value in filters.items():
             try:
-                if isinstance(filters[filter], (str, int)):
+                if isinstance(value, (str, int)):
                     df = df.loc[df[filter] == filters[filter]]
 
                 elif isinstance(filters[filter], list):
                     df["team"] = df["team"].astype(str)
                     df = df.loc[df[filter].isin(filters[filter])]
                 else:
-                    raise Exception("Filter type not accepted")
+                    raise ValueError("Filter type not accepted")
 
-            except ValueError:
+            except ValueError as e:
                 logging.critical(f"Columns to filter on: {filter}")
                 logging.critical(f"Column value example: {df[filter].iloc[0]}")
                 logging.critical(f"Column value type: {df[filter].dtype}")
                 logging.critical(f"Filter type: {type(filters[filter])}")
                 logging.critical(f"Filter value: {filters[filter]}")
-                raise ValueError
-
+                raise e
     if nr_of_rows:
         df = df.head(nr_of_rows)
 

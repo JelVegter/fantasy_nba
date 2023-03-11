@@ -9,7 +9,7 @@ def app():
     with st.sidebar:
         # Fantasy roster
         fantasy_roster_1 = st.sidebar.selectbox(
-            label="Select Fantasy Team", options=FANTASY_TEAMS, index=6
+            label="Select Fantasy Team", options=FANTASY_TEAMS, index=7
         )
         fantasy_roster_2 = st.sidebar.selectbox(
             label="Select Fantasy Team", options=FANTASY_TEAMS
@@ -27,7 +27,7 @@ def app():
         elif week == "Next Week":
             week = "nextweek"
         else:
-            raise Exception("Invalid week selected")
+            raise ValueError("Invalid week selected")
 
     st.title("Matchup")
     filters = {}

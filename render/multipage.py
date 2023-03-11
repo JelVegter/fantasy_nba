@@ -21,6 +21,7 @@ class MultiPage:
         self.pages.append({"title": title, "function": func})
 
     def run(self):
+        st.markdown(DATASETS.time_set_str)
         if st.button(label="Refresh Datasets"):
             DATASETS.refresh_datasets()
 

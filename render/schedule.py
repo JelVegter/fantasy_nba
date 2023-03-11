@@ -38,7 +38,7 @@ def app():
         positions = set([fa.position for fa in league.free_agents()])
         position = e.multiselect(label="Position", options=positions)
 
-        week_numbers = [_ for _ in range(1, 52)]
+        week_numbers = list(range(1, 52))
         week = f.selectbox(
             label="Week", options=["This Week", "Next Week"] + week_numbers
         )

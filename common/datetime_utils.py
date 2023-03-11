@@ -7,6 +7,8 @@ def get_week_number(dt: Union[datetime, date]) -> int:
     return dt.isocalendar()[1]
 
 
+NOW = datetime.now()
+NOW_STR = NOW.strftime("%Y-%m-%d, %H:%M")
 TODAY = date.today()
 TODAY_NP = datetime64(TODAY)
 CURRENTDAYOFWEEK = TODAY.weekday()
