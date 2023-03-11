@@ -132,3 +132,6 @@ dmypy.json
 data/player/*
 data/roster/*
 data/schedule/*
+
+# Csv
+*.csv
