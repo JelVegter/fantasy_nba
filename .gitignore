@@ -57,6 +57,7 @@ coverage.xml
 
 # Django stuff:
 *.log
+*.log.*
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
@@ -135,3 +136,6 @@ data/schedule/*
 
 # Csv
 *.csv
+
+# Database
+*.db
