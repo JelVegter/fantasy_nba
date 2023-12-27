@@ -4,7 +4,6 @@ version = "0.1.0"
 description = ""
 authors = ["Jelle Vegter <jelle.vegter@nederlandseloterij.nl>"]
 packages = [
-    { include = "common" },
     { include = "src" },
     { include = "models" },
 ]

@@ -99,3 +99,24 @@ check:
 	@make format
 	@make lint
 	@make test
+
+ifeq ($(OS),Windows_NT)
+    # If running on Windows
+    TREE_CMD = dir /S /B
+
+else
+    # If running on Unix-like systems (Linux or macOS)
+    ifeq ($(shell command -v pbcopy 2> /dev/null),)
+        ifeq ($(shell command -v xclip 2> /dev/null),)
+            $(error Clipboard utility (pbcopy or xclip) not found)
+        else
+            TREE_CMD = tree -I '_pycache_|env|venv' | xclip -selection clipboard
+        endif
+    else
+        TREE_CMD = tree -I '_pycache_|env|venv' | pbcopy
+    endif
+endif
+
+.PHONY: tree lint
+tree:
+	$(TREE_CMD)

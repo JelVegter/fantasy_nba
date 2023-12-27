@@ -7,15 +7,12 @@ from logs import logger
 
 
 # CURRENTDAYOFYEAR = 291
-def retain_latest_per_player(df: pl.DataFrame) -> pl.DataFrame:
+def retain_latest_per_player(df: pl.DataFrame) -> pl.DataFrame: # TODO
     """
     Retains the latest record for each player based on day_of_year.
     """
     print("Retaining")
-    print(df)
-    print(len(df))
     df = df.sort("date", descending=True).groupby("name").agg(pl.first("*"))
-    print(df)
     print(len(df))
 
     return df
@@ -69,33 +66,6 @@ def aggregate_data(df: pl.DataFrame) -> pl.DataFrame:
     )
     return df.sort(by="sum_avg_points", descending=True)
 
-
-# def aggregate_data(df: pl.DataFrame) -> pl.DataFrame:
-#     """Aggregate data for players."""
-#     df = (
-#         df.select(
-#             "name",
-#             "team_abbrev",
-#             "injury_status",
-#             "total_points",
-#             "avg_points",
-#             "projected_total_points",
-#             "projected_avg_points",
-#         )
-#         .group_by(["name", "team_abbrev", "injury_status"])
-#         .agg(
-#             [
-#                 pl.count().alias("games"),
-#                 pl.col("avg_points").first().alias("avg_points"),
-#                 pl.col("projected_avg_points").first().alias("proj_avg_points"),
-#                 pl.col("avg_points").sum().alias("sum_avg_points"),
-#                 pl.col("projected_avg_points").sum().alias("sum_proj_avg_points"),
-#                 pl.col("total_points").max(),
-#                 pl.col("projected_total_points").max(),
-#             ]
-#         )
-#     )
-#     return df.sort(by="sum_avg_points", descending=True)
 
 
 def app():

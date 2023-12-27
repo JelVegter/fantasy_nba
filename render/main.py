@@ -3,6 +3,7 @@ from logging.config import fileConfig
 import streamlit as st
 from multipage import MultiPage
 import render.free_agent
+import render.team_schedule
 
 
 def main():
@@ -18,9 +19,9 @@ def main():
     # ---------------------------------------------#
     app = MultiPage()
     app.add_page("Free Agents", render.free_agent.app)
-    # app.add_page("Player Streaming", page_streaming.app)
+    app.add_page("Team Schedule", render.team_schedule.app)
     # app.add_page("Matchup", render.matchup.app)
-    # app.add_page("Player Schedule", render.playerschedule.app)
+    # app.add_page("Player Schedule", render.playerschedule.app)    
     app.run()
 
 
