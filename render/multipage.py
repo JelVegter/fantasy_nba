@@ -1,34 +1,33 @@
 import streamlit as st
-from common.datasets import DATASETS
+from src.common.constants import DATETIME_PRETTY, CURRENTWEEKNUMBER
 
-# Define the multipage class to manage the multiple apps in our program
+
 class MultiPage:
     """Framework for combining multiple streamlit applications."""
 
     def __init__(self) -> None:
-        """Constructor class to generate a list which will store all our
-        applications as an instance variable."""
+        """Constructor to generate a list which will store all our applications as an instance variable."""
         self.pages = []
 
     def add_page(self, title, func) -> None:
-        """Class Method to Add pages to the project
+        """Method to add pages to the project.
+
         Args:
-            title ([str]): The title of page which we are adding to the list of apps
-
-            func: Python function to render this page in Streamlit
+            title (str): The title of the page which we are adding to the list of apps.
+            func: Python function to render this page in Streamlit.
         """
-
         self.pages.append({"title": title, "function": func})
 
     def run(self):
-        st.markdown(DATASETS.time_set_str)
-        if st.button(label="Refresh Datasets"):
-            DATASETS.refresh_datasets()
-
-        # Drodown to select the page to run
+        # Sidebar with Time, Week and App Navigation
+        st.sidebar.markdown(f"**Time (ET):** {DATETIME_PRETTY}")
+        st.sidebar.markdown(f"**Week:** {CURRENTWEEKNUMBER}")
         page = st.sidebar.selectbox(
-            "App Navigation", self.pages, format_func=lambda page: page["title"]
+            "Select a Page:", self.pages, format_func=lambda page: page["title"]
         )
+        st.sidebar.markdown("---")
 
-        # run the app function
+        # Horizontal line
+
+        # Run the app function
         page["function"]()
