@@ -50,7 +50,7 @@ class ScheduleGetter:
         urls = [base_url.format(year, month) for month in months]
         html_tables = [
             read_html(content)[0] if content else None
-            for content in await fetch_api_data(urls)  # Note the 'await' keyword here
+            for content in await fetch_api_data(urls)
         ]
         self.df = concat([table for table in html_tables if table is not None])
         return self.df
