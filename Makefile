@@ -67,7 +67,7 @@ ingest-data:
 
 process-data:
 	poetry run python src/process/player_schedule_points.py
-	
+
 clear-and-fill-db:
 	@make clear-db
 	@make create-db-tables
@@ -75,6 +75,10 @@ clear-and-fill-db:
 	@make ingest-data
 	@make process-data
 
+reset-and-up:
+	@make clear-and-fill-db
+	@make up
+	
 up:
 	poetry run streamlit run render/main.py
 

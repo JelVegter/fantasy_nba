@@ -15,9 +15,18 @@ DATE_TZ_AWARE = DATETIME.replace(hour=0, minute=0, second=0, microsecond=0)
 CURRENTWEEKNUMBER = DATETIME.isocalendar()[1]
 CURRENTDAYOFYEAR = int(DATE_TZ_AWARE.strftime("%j"))
 
+
 def day_of_week_to_name(day: int) -> str:
     """Converts day of the week from number to name."""
-    weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    weekdays = [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+    ]
     return weekdays[day]
 
 

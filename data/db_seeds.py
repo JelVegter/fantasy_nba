@@ -35,5 +35,7 @@ def populate_enum_tables(session):
 
 if __name__ == "__main__":
     with Session() as session:
-        clear_tables(session)
-        populate_enum_tables(session)
+        try:
+            clear_tables(session)
+        finally:
+            populate_enum_tables(session)
