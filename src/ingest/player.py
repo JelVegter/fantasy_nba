@@ -2,14 +2,16 @@ from src.espn.league import league
 from data.db import Session
 from models.player import Player
 from sqlalchemy import func, insert
+from src.espn.league import YEAR
 
 FREE_AGENT = "Free Agent"
 
 
-def insert_players(session, all_players):
+def insert_players(session, all_players: list[Player]):
     current_time = func.now()
     for fantasy_roster_name, players in all_players.items():
         for player in players:
+
             if player.injuryStatus == []:
                 player.injuryStatus = None
             stmt = (
@@ -27,6 +29,9 @@ def insert_players(session, all_players):
                     lineup_slot=player.lineupSlot,
                     total_points=player.total_points,
                     avg_points=player.avg_points,
+                    avg_last_7=player.stats[f"{YEAR}_last_7"]["applied_avg"],
+                    avg_last_15=player.stats[f"{YEAR}_last_15"]["applied_avg"],
+                    avg_last_30=player.stats[f"{YEAR}_last_30"]["applied_avg"],
                     projected_total_points=player.projected_total_points,
                     projected_avg_points=player.projected_avg_points,
                     created_at=current_time,

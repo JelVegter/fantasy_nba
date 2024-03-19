@@ -27,6 +27,10 @@ class Player(Base):
     lineup_slot = Column(String, nullable=True)
     total_points = Column(Float, nullable=True)
     avg_points = Column(Float, nullable=True)
+    avg_last_7 = Column(Float, nullable=True)
+    avg_last_15 = Column(Float, nullable=True)
+    avg_last_30 = Column(Float, nullable=True)
+
     projected_total_points = Column(Float, nullable=True)
     projected_avg_points = Column(Float, nullable=True)
 

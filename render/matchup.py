@@ -18,7 +18,8 @@ class FilterOptions:
 
 @dataclass
 class Filters:
-    fantasy_roster_name: str = None
+    fantasy_roster_1_name: str = None
+    fantasy_roster_2_name: str = None
     injury_status: list = None
     free_agent: list = None
     teams: list = None
@@ -46,25 +47,19 @@ def get_players_base() -> pl.DataFrame:
     return df
 
 
-def apply_fa_filters(df: pl.DataFrame, filters: Filters) -> pl.DataFrame:
+def apply_roster_1_filters(df: pl.DataFrame, filters: Filters) -> pl.DataFrame:
     """Apply filters to the DataFrame based on Filters instance."""
-    df = df.filter(df["is_free_agent"] == 1)
-    if filters.teams:
-        df = df.filter(pl.col("team_abbrev").is_in(filters.teams))
-    if filters.position:
-        df = df.filter(pl.col("position").is_in(filters.position))
-    if filters.free_agent:
-        df = df.filter(pl.col("name").is_in(filters.free_agent))
+    if filters.fantasy_roster_1_name:
+        df = df.filter(pl.col("fantasy_roster_name") == filters.fantasy_roster_1_name)
     if filters.injury_status:
         df = df.filter(pl.col("injury_status").is_in(filters.injury_status))
     return df
 
 
-def apply_roster_filters(df: pl.DataFrame, filters: Filters) -> pl.DataFrame:
+def apply_roster_2_filters(df: pl.DataFrame, filters: Filters) -> pl.DataFrame:
     """Apply filters to the DataFrame based on Filters instance."""
-    df = df.filter(df["is_free_agent"] == 0)
-    if filters.fantasy_roster_name:
-        df = df.filter(pl.col("fantasy_roster_name") == filters.fantasy_roster_name)
+    if filters.fantasy_roster_2_name:
+        df = df.filter(pl.col("fantasy_roster_name") == filters.fantasy_roster_2_name)
     if filters.injury_status:
         df = df.filter(pl.col("injury_status").is_in(filters.injury_status))
     return df
@@ -75,6 +70,7 @@ def log_filters(**filters) -> None:
     logger.debug("-" * 25)
     for key, value in filters.items():
         logger.debug(f"{key}: {value}")
+
     logger.info(json.dumps(filters, indent=4))
     print(json.dumps(filters, indent=4))
     logger.debug("-" * 25)
@@ -105,15 +101,7 @@ def filter_columns(df: pl.DataFrame, columns: list[str]) -> pl.DataFrame:
     return df.select(columns)
 
 
-def find_rising_stars(df: pl.DataFrame) -> pl.DataFrame:
-    # IF avg_last_7 is more than 50% higher than avg_last_30 and if points at least 25
-    return df.filter(
-        (pl.col("avg_last_7") > 25)
-        & (pl.col("avg_last_7") > pl.col("avg_last_30") * 1.3)
-    )
-
-
-def setup_sidebar(df: pl.DataFrame) -> Filters:
+def setup_sidebar(df_base: pl.DataFrame) -> Filters:
     """Setup Streamlit sidebar for filtering and return a Filters instance."""
 
     if "filters" not in st.session_state:
@@ -121,17 +109,24 @@ def setup_sidebar(df: pl.DataFrame) -> Filters:
 
     if "filter_options" not in st.session_state:
         st.session_state.filter_options = FilterOptions(
-            player_names=df["name"].unique().to_list(),
-            team_abbrevs=df["team_abbrev"].unique().to_list(),
-            positions=df["position"].unique().to_list(),
+            player_names=df_base["name"].unique().to_list(),
+            team_abbrevs=df_base["team_abbrev"].unique().to_list(),
+            positions=df_base["position"].unique().to_list(),
         )
 
-    fantasy_roster_index = 4 if len(FANTASY_ROSTERS) > 5 else 0
-    fantasy_roster_name = st.sidebar.selectbox(
-        "Fantasy Roster",
+    fantasy_roster_1_index = 4 if len(FANTASY_ROSTERS) > 5 else 0
+    fantasy_roster_1_name = st.sidebar.selectbox(
+        "Fantasy Roster 1",
         FANTASY_ROSTERS,
-        index=fantasy_roster_index,
+        index=fantasy_roster_1_index,
         key="fantasy_roster_name",
+    )
+    fantasy_roster_2_index = 4 if len(FANTASY_ROSTERS) > 5 else 0
+    fantasy_roster_2_name = st.sidebar.selectbox(
+        "Fantasy Roster 2",
+        FANTASY_ROSTERS,
+        index=fantasy_roster_2_index,
+        key="fantasy_roster_2_name",
     )
     injury_status = st.sidebar.multiselect(
         "Injury Status",
@@ -140,31 +135,13 @@ def setup_sidebar(df: pl.DataFrame) -> Filters:
         key="injury_status",
     )
 
-    free_agent = st.sidebar.multiselect(
-        "Free Agents",
-        st.session_state.filter_options.player_names,
-        default=st.session_state.filters.free_agent,
-        key="free_agent",
-    )
-
-    teams = st.sidebar.multiselect(
-        "Teams",
-        st.session_state.filter_options.team_abbrevs,
-        default=st.session_state.filters.teams,
-        key="teams",
-    )
-
-    position = st.sidebar.multiselect(
-        "Position",
-        st.session_state.filter_options.positions,
-        default=st.session_state.filters.position,
-        key="position",
-    )
-
     day_offset = st.sidebar.slider("Day Offset", 0, 6, (0, 6), key="day_offset")
 
     return Filters(
-        fantasy_roster_name, injury_status, free_agent, teams, position, day_offset
+        fantasy_roster_1_name,
+        fantasy_roster_2_name,
+        injury_status,
+        day_offset,
     )
 
 
@@ -173,7 +150,8 @@ def app():
     df_base = get_players_base()
     filters = setup_sidebar(df_base)
 
-    # Calculate projections per player, filtered by a date range
+    # Calculate projections per player for games, filtered by a date range
+
     # Aggregate projections
     df_projections = df_projections.filter(
         pl.col("day_of_year").is_in(
@@ -186,36 +164,35 @@ def app():
     df_rojections_agg = aggregate_data(df_projections)
 
     # Filter the free agent and roster DataFrames, then add the aggregated projections
-    df_free_agent = apply_fa_filters(df_base, filters)
-    df_free_agent = df_free_agent.join(df_rojections_agg, on="name", how="left")
-
-    df_rising_stars = find_rising_stars(df_free_agent)
-
-    df_roster_player = apply_roster_filters(df_base, filters)
-    df_roster_player = df_roster_player.join(df_rojections_agg, on="name", how="left")
-
-    # Render Dataframes
-    e = st.columns(1)[0]
-    e.title("Rising Stars")
-    df_rising_stars = filter_columns(
-        df_rising_stars,
-        PLAYER_POINTS_COLS,
+    df_roster_player_1 = apply_roster_1_filters(df_base, filters)
+    df_roster_player_1 = df_roster_player_1.join(
+        df_rojections_agg, on="name", how="left"
     )
-    e.dataframe(df_rising_stars.to_pandas(), height=200, width=1000)
+
+    df_roster_player_2 = apply_roster_2_filters(df_base, filters)
+    df_roster_player_2 = df_roster_player_2.join(
+        df_rojections_agg, on="name", how="left"
+    )
 
     e = st.columns(1)[0]
-    e.title("Free Agents")
-    df_free_agent = filter_columns(
-        df_free_agent,
-        PLAYER_POINTS_COLS,
-    )
-    e.dataframe(df_free_agent.to_pandas(), height=400, width=1000)
-
-    f = st.columns(1)[0]
-    f.title(f"{filters.fantasy_roster_name}")
-    df_roster_player = filter_columns(
-        df_roster_player,
+    e.title(filters.fantasy_roster_1_name)
+    df_roster_player_1 = filter_columns(
+        df_roster_player_1,
         PLAYER_POINTS_COLS,
     )
     # Render Dataframe
-    f.dataframe(df_roster_player.to_pandas(), height=400, width=1000)
+    e.dataframe(df_roster_player_1.to_pandas(), height=400, width=1000)
+
+    # Sum the polars dataframe avg_points column
+
+    st.markdown(int(df_roster_player_1["sum_avg_points"].sum()))
+
+    f = st.columns(1)[0]
+    f.title(f"{filters.fantasy_roster_2_name}")
+    df_roster_player_2 = filter_columns(
+        df_roster_player_2,
+        PLAYER_POINTS_COLS,
+    )
+    # Render Dataframe
+    f.dataframe(df_roster_player_2.to_pandas(), height=400, width=1000)
+    st.markdown(int(df_roster_player_2["sum_avg_points"].sum()))
