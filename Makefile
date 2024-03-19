@@ -80,7 +80,7 @@ reset-and-up:
 	@make up
 	
 up:
-	poetry run streamlit run render/main.py
+	poetry run streamlit run main.py
 
 install:
 	poetry install

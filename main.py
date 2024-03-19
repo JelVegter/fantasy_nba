@@ -1,9 +1,11 @@
 import logging
 from logging.config import fileConfig
 import streamlit as st
-from multipage import MultiPage
-import render.free_agent
-import render.team_schedule
+from render.multipage import MultiPage
+from render import free_agent
+from render import team_schedule
+from render import game_gap
+from render import matchup
 
 
 def main():
@@ -18,10 +20,10 @@ def main():
     # ---------------  DEFINE PAGES ---------------#
     # ---------------------------------------------#
     app = MultiPage()
-    app.add_page("Free Agents", render.free_agent.app)
-    app.add_page("Team Schedule", render.team_schedule.app)
-    # app.add_page("Matchup", render.matchup.app)
-    # app.add_page("Player Schedule", render.playerschedule.app)    
+    app.add_page("Free Agents", free_agent.app)
+    app.add_page("Team Schedule", team_schedule.app)
+    app.add_page("Game Gap", game_gap.app)
+    app.add_page("Matchup", matchup.app)
     app.run()
 
 

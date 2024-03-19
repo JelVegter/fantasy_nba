@@ -15,6 +15,21 @@ DATE_TZ_AWARE = DATETIME.replace(hour=0, minute=0, second=0, microsecond=0)
 CURRENTWEEKNUMBER = DATETIME.isocalendar()[1]
 CURRENTDAYOFYEAR = int(DATE_TZ_AWARE.strftime("%j"))
 
+PLAYER_POINTS_COLS = [
+    "name",
+    "sum_avg_points",
+    "games",
+    "avg_points",
+    "avg_last_7",
+    "avg_last_15",
+    "avg_last_30",
+    "injury_status",
+    "projected_avg_points",
+    "sum_proj_avg_points",
+    "team_abbrev",
+    "position",
+]
+
 
 def day_of_week_to_name(day: int) -> str:
     """Converts day of the week from number to name."""
@@ -30,8 +45,7 @@ def day_of_week_to_name(day: int) -> str:
     return weekdays[day]
 
 
-def get_free_agents() -> list[str]:
-    ...
+def get_free_agents() -> list[str]: ...
 
 
 def get_fantasy_rosters_as_list() -> list[str]:

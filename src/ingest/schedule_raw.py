@@ -1,11 +1,43 @@
 import asyncio
 import aiohttp
 from pandas import DataFrame, read_html, concat, to_datetime
-from src.espn.league import YEAR
-from data.db import Session
-from src.common.constants import TIMEZONE
-from data.enums import TeamEnum
-from models.schedule import Schedule
+from enum import Enum
+from pytz import timezone
+
+TIMEZONE = timezone("US/Eastern")
+
+
+class TeamEnum(Enum):
+    ATL = "Atlanta Hawks"
+    BOS = "Boston Celtics"
+    BKN = "Brooklyn Nets"
+    CHA = "Charlotte Hornets"
+    CHI = "Chicago Bulls"
+    CLE = "Cleveland Cavaliers"
+    DAL = "Dallas Mavericks"
+    DEN = "Denver Nuggets"
+    DET = "Detroit Pistons"
+    GSW = "Golden State Warriors"
+    HOU = "Houston Rockets"
+    IND = "Indiana Pacers"
+    LAL = "Los Angeles Lakers"
+    LAC = "Los Angeles Clippers"
+    MEM = "Memphis Grizzlies"
+    MIA = "Miami Heat"
+    MIL = "Milwaukee Bucks"
+    MIN = "Minnesota Timberwolves"
+    NOP = "New Orleans Pelicans"
+    NYK = "New York Knicks"
+    OKC = "Oklahoma City Thunder"
+    ORL = "Orlando Magic"
+    PHL = "Philadelphia 76ers"
+    PHO = "Phoenix Suns"
+    POR = "Portland Trail Blazers"
+    SAC = "Sacramento Kings"
+    SAS = "San Antonio Spurs"
+    TOR = "Toronto Raptors"
+    UTA = "Utah Jazz"
+    WAS = "Washington Wizards"
 
 
 async def fetch(session, url: str) -> str:
@@ -90,18 +122,18 @@ class ScheduleGetter:
         self.df = concat([home, visitor])
 
         # Select only the columns that match the Schedule model attributes
-        required_columns = [
-            "date",
-            "week",
-            "day_of_week",
-            "day_of_year",
-            "time",
-            "opponent",
-            "team",
-            "matchup",
-            "is_visitor",
-        ]
-        self.df = self.df[required_columns]
+        # required_columns = [
+        #     "date",
+        #     "week",
+        #     "day_of_week",
+        #     "day_of_year",
+        #     "time",
+        #     "opponent",
+        #     "team",
+        #     "matchup",
+        #     "is_visitor",
+        # ]
+        # self.df = self.df[required_columns]
 
         return self.df
 
@@ -119,30 +151,9 @@ def abbreviate_team(team: str) -> str:
 
 async def main():
     schedule = ScheduleGetter()
-    df = await schedule.process_data(year=YEAR)
-    session = Session()
-    try:
-        session.query(Schedule).delete()
-
-        for index, row in df.iterrows():
-            schedule = Schedule(
-                date=row["date"],
-                day_of_year=row["day_of_year"],
-                week=row["week"],
-                day_of_week=row["day_of_week"],
-                time=row["time"],
-                opponent_abbrev=row["opponent"],
-                team_abbrev=row["team"],
-                matchup=row["matchup"],
-                is_visitor=row["is_visitor"],
-            )
-            session.merge(schedule)
-        session.commit()
-    except Exception as e:
-        print(f"An error occurred: {e}")
-        session.rollback()
-    finally:
-        session.close()
+    df = await schedule.process_data(year=2024)
+    df.to_csv("schedule.csv", index=False)
+    print(df)
 
 
 if __name__ == "__main__":
