@@ -26,6 +26,7 @@ class Player(Base):
     injured = Column(Integer, nullable=True)
     lineup_slot = Column(String, nullable=True)
     total_points = Column(Float, nullable=True)
+    fantasy_points = Column(Float, nullable=True)
     avg_points = Column(Float, nullable=True)
     avg_last_7 = Column(Float, nullable=True)
     avg_last_15 = Column(Float, nullable=True)

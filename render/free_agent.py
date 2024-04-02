@@ -183,16 +183,39 @@ def app():
             )
         )
     )
-    df_rojections_agg = aggregate_data(df_projections)
+
+    df_projections_agg = aggregate_data(df_projections)
 
     # Filter the free agent and roster DataFrames, then add the aggregated projections
     df_free_agent = apply_fa_filters(df_base, filters)
-    df_free_agent = df_free_agent.join(df_rojections_agg, on="name", how="left")
+    df_free_agent = df_free_agent.join(df_projections_agg, on="name", how="left")
+    df_free_agent = df_free_agent.with_columns(
+        pl.col("fantasy_points").mul(pl.col("games")).alias("sum_fantasy_points")
+    )
+    df_free_agent = df_free_agent.filter(pl.col("sum_fantasy_points").is_not_null())
+
+    # df_projections_agg = aggregate_data(df_projections)
+
+    # # Filter the free agent and roster DataFrames, then add the aggregated projections
+    # df_free_agent = df_projections_agg.join(df_projections_agg, on="name", how="left")
+    # df_free_agent = apply_fa_filters(df_base, filters)
+    # df_free_agent = apply_fa_filters(df_base, filters)
+    # df_free_agent = df_free_agent.join(df_projections, on="name", how="left")
+
+    # df_projections_agg = aggregate_data(df_free_agent)
+    # # Filter the free agent and roster DataFrames, then add the aggregated projections
 
     df_rising_stars = find_rising_stars(df_free_agent)
+    df_rising_stars = df_rising_stars.with_columns(
+        pl.col("fantasy_points").mul(pl.col("games")).alias("sum_fantasy_points")
+    )
+    df_rising_stars = df_rising_stars.filter(pl.col("sum_fantasy_points").is_not_null())
 
     df_roster_player = apply_roster_filters(df_base, filters)
-    df_roster_player = df_roster_player.join(df_rojections_agg, on="name", how="left")
+    df_roster_player = df_roster_player.join(df_projections_agg, on="name", how="left")
+    df_roster_player = df_roster_player.with_columns(
+        pl.col("fantasy_points").mul(pl.col("games")).alias("sum_fantasy_points")
+    )
 
     # Render Dataframes
     e = st.columns(1)[0]

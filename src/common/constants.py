@@ -17,7 +17,7 @@ CURRENTDAYOFYEAR = int(DATE_TZ_AWARE.strftime("%j"))
 
 PLAYER_POINTS_COLS = [
     "name",
-    "sum_avg_points",
+    "sum_fantasy_points",
     "games",
     "avg_points",
     "avg_last_7",
@@ -25,6 +25,7 @@ PLAYER_POINTS_COLS = [
     "avg_last_30",
     "injury_status",
     "projected_avg_points",
+    "sum_avg_points",
     "sum_proj_avg_points",
     "team_abbrev",
     "position",

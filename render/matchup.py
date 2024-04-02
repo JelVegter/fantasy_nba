@@ -168,10 +168,16 @@ def app():
     df_roster_player_1 = df_roster_player_1.join(
         df_rojections_agg, on="name", how="left"
     )
+    df_roster_player_1 = df_roster_player_1.with_columns(
+        pl.col("fantasy_points").mul(pl.col("games")).alias("sum_fantasy_points")
+    )
 
     df_roster_player_2 = apply_roster_2_filters(df_base, filters)
     df_roster_player_2 = df_roster_player_2.join(
         df_rojections_agg, on="name", how="left"
+    )
+    df_roster_player_2 = df_roster_player_2.with_columns(
+        pl.col("fantasy_points").mul(pl.col("games")).alias("sum_fantasy_points")
     )
 
     e = st.columns(1)[0]
@@ -185,7 +191,7 @@ def app():
 
     # Sum the polars dataframe avg_points column
 
-    st.markdown(int(df_roster_player_1["sum_avg_points"].sum()))
+    st.markdown(int(df_roster_player_1["sum_fantasy_points"].sum()))
 
     f = st.columns(1)[0]
     f.title(f"{filters.fantasy_roster_2_name}")
@@ -195,4 +201,4 @@ def app():
     )
     # Render Dataframe
     f.dataframe(df_roster_player_2.to_pandas(), height=400, width=1000)
-    st.markdown(int(df_roster_player_2["sum_avg_points"].sum()))
+    st.markdown(int(df_roster_player_2["sum_fantasy_points"].sum()))
