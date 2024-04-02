@@ -7,10 +7,36 @@ from src.espn.league import YEAR
 FREE_AGENT = "Free Agent"
 
 
+def calculate_fantasy_points(avg_points, avg_last_7, avg_last_15, avg_last_30):
+    point_weights = {
+        "avg_points": 0.4,
+        "avg_last_7": 0.3,
+        "avg_last_15": 0.2,
+        "avg_last_30": 0.1,
+    }
+    values = [
+        avg_points * point_weights["avg_points"],
+        avg_last_7 * point_weights["avg_last_7"],
+        avg_last_15 * point_weights["avg_last_15"],
+        avg_last_30 * point_weights["avg_last_30"],
+    ]
+    return sum([value for value in values if value is not None])
+
+
 def insert_players(session, all_players: list[Player]):
     current_time = func.now()
     for fantasy_roster_name, players in all_players.items():
         for player in players:
+            avg_points = player.avg_points
+            avg_last_7 = player.stats[f"{YEAR}_last_7"]["applied_avg"]
+            avg_last_15 = player.stats[f"{YEAR}_last_15"]["applied_avg"]
+            avg_last_30 = player.stats[f"{YEAR}_last_30"]["applied_avg"]
+            fantasy_points = calculate_fantasy_points(
+                avg_points,
+                avg_last_7,
+                avg_last_15,
+                avg_last_30,
+            )
 
             if player.injuryStatus == []:
                 player.injuryStatus = None
@@ -28,10 +54,11 @@ def insert_players(session, all_players: list[Player]):
                     injured=player.injured,
                     lineup_slot=player.lineupSlot,
                     total_points=player.total_points,
-                    avg_points=player.avg_points,
-                    avg_last_7=player.stats[f"{YEAR}_last_7"]["applied_avg"],
-                    avg_last_15=player.stats[f"{YEAR}_last_15"]["applied_avg"],
-                    avg_last_30=player.stats[f"{YEAR}_last_30"]["applied_avg"],
+                    fantasy_points=fantasy_points,
+                    avg_points=avg_points,
+                    avg_last_7=avg_last_7,
+                    avg_last_15=avg_last_15,
+                    avg_last_30=avg_last_30,
                     projected_total_points=player.projected_total_points,
                     projected_avg_points=player.projected_avg_points,
                     created_at=current_time,
