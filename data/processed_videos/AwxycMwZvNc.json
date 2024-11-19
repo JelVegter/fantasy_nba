@@ -1,0 +1,102 @@
+{
+    "mentions": [
+        {
+            "name": "Miles Bridges",
+            "team": "CHA",
+            "advice": "sell high",
+            "urgency": 4,
+            "analysis": "Brandon Miller's injury is giving more minutes to Miles Bridges, and he's playing really well off LaMelo Ball. This might be a good time to sell high on him."
+        },
+        {
+            "name": "Norman Powell",
+            "team": "LAC",
+            "advice": "sell high",
+            "urgency": 3,
+            "analysis": "Norman Powell has been playing really well in the absence of Paul George and Kawhi Leonard. It's suggested to consider selling high on him."
+        },
+        {
+            "name": "Gabe Vincent",
+            "team": "LAL",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "Gabe Vincent is getting more minutes with the Lakers, and in deep leagues, he could be a valuable pickup."
+        },
+        {
+            "name": "Max Christie",
+            "team": "LAL",
+            "advice": "pick up",
+            "urgency": 2,
+            "analysis": "Max Christie can be a points wipe and is getting more minutes with the Lakers, making him a potential pickup in deep leagues."
+        },
+        {
+            "name": "Kelly Oubre Jr.",
+            "team": "PHL",
+            "advice": "add",
+            "urgency": 5,
+            "analysis": "Kelly Oubre Jr. is getting a lot of playing time and producing points, making him a must-add to lineups."
+        },
+        {
+            "name": "Grady Dick",
+            "team": "TOR",
+            "advice": "watch",
+            "urgency": 2,
+            "analysis": "With RJ Barrett yet to play, Grady Dick might come into lineups, so it's worth keeping an eye on him."
+        },
+        {
+            "name": "Noah Clowney",
+            "team": "BKN",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "Noah Clowney has been dropped in a lot of teams, and with the Nets having a four-game week, he could be a valuable pickup."
+        },
+        {
+            "name": "Dean Wade",
+            "team": "CLE",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "Dean Wade has been getting extra minutes lately, making him a potential pickup."
+        },
+        {
+            "name": "Ty Jerome",
+            "team": "CLE",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "Ty Jerome is doing a good job as one of the backups in Cleveland, making him a potential pickup."
+        },
+        {
+            "name": "Gary Trent Jr.",
+            "team": "MIL",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "Gary Trent Jr. might be available in some lineups and could be a valuable pickup for streaming purposes."
+        },
+        {
+            "name": "Jordan Hawkins",
+            "team": "NOP",
+            "advice": "add",
+            "urgency": 4,
+            "analysis": "Jordan Hawkins is a must-add in the interim as he is going to get a lot of playing time with the Pelicans."
+        },
+        {
+            "name": "Nick Richards",
+            "team": "CHA",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "Nick Richards is a good add for a center, especially if Mark Williams plays only one game in the week."
+        },
+        {
+            "name": "Keon Ellis",
+            "team": "SAC",
+            "advice": "watch",
+            "urgency": 2,
+            "analysis": "Keon Ellis is an excellent player who could break into the rotation and get more minutes based on matchups."
+        },
+        {
+            "name": "Alex Caruso",
+            "team": "OKC",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "Alex Caruso is a good pickup if you're chasing steals, as he is likely to be streamed throughout the week."
+        }
+    ]
+}

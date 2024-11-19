@@ -1,0 +1,92 @@
+{
+    "mentions": [
+        {
+            "name": "Jose Alvarado",
+            "team": "NOP",
+            "advice": "must roster",
+            "urgency": 5,
+            "analysis": "With a lot of injuries in New Orleans, Jose Alvarado is an absolute must roster. He provides value over other options like Jordan Hawkins."
+        },
+        {
+            "name": "Keontay George",
+            "team": "UTA",
+            "advice": "consider dropping",
+            "urgency": 3,
+            "analysis": "Keontay George might go four of 40 over two games, but at least he's going to be playing and you can use him if you choose to."
+        },
+        {
+            "name": "Collin Sexton",
+            "team": "UTA",
+            "advice": "bump up",
+            "urgency": 4,
+            "analysis": "With Jordan Clarkson out, Collin Sexton bumps up in value and is expected to start again."
+        },
+        {
+            "name": "Garrison Mathews",
+            "team": "ATL",
+            "advice": "consider adding",
+            "urgency": 3,
+            "analysis": "Garrison Mathews is hitting a lot of threes and with Atlanta playing five games in six nights, he could be a useful addition."
+        },
+        {
+            "name": "David Roddy",
+            "team": "ATL",
+            "advice": "consider adding",
+            "urgency": 3,
+            "analysis": "David Roddy is not a great player, but with Atlanta's schedule of five games in six nights, he becomes a useful option."
+        },
+        {
+            "name": "Scoot Henderson",
+            "team": "POR",
+            "advice": "add and start",
+            "urgency": 4,
+            "analysis": "Despite the last two games not being great, Scoot Henderson is still under 50% rostered and should be added and started."
+        },
+        {
+            "name": "Christian Braun",
+            "team": "DEN",
+            "advice": "add and start",
+            "urgency": 4,
+            "analysis": "Christian Braun is still under 50% rostered and should be added and started."
+        },
+        {
+            "name": "Gradey Dick",
+            "team": "TOR",
+            "advice": "add and start",
+            "urgency": 4,
+            "analysis": "Gradey Dick is still under 50% rostered and should be added and started."
+        },
+        {
+            "name": "Cason Wallace",
+            "team": "OKC",
+            "advice": "add in deeper leagues",
+            "urgency": 2,
+            "analysis": "Cason Wallace is playing around 24 minutes most nights and with four games this week, he is interesting for deeper formats."
+        },
+        {
+            "name": "Al Horford",
+            "team": "BOS",
+            "advice": "add and start",
+            "urgency": 4,
+            "analysis": "Al Horford remains under-rostered and with no back-to-backs for the Celtics this week, he should be added and started."
+        },
+        {
+            "name": "Jordan Poole",
+            "team": "WAS",
+            "advice": "start",
+            "urgency": 4,
+            "analysis": "With three games in Washington, Jordan Poole is the Wizard to start."
+        },
+        {
+            "name": "Cam Thomas",
+            "team": "BKN",
+            "advice": "start",
+            "urgency": 4,
+            "analysis": "With three games in Brooklyn, Cam Thomas should be started."
+        }
+    ],
+    "metadata": {
+        "date": "2024-11-03T09:06:35.022867+00:00",
+        "video_id": "oXoOhwNLiEk"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "mentions": [
+        {
+            "name": "Damian Lillard",
+            "team": "MIL",
+            "advice": "pick up",
+            "urgency": 4,
+            "analysis": "Lillard is expected to bounce back nicely this season and could push for a top 15 fantasy year if he stays healthy. Despite a disappointing year last season, he remains one of the NBA's best high-volume three-point shooters and a 90% free throw guy. The Bucks need him to perform well, especially with Chris Middleton out indefinitely."
+        },
+        {
+            "name": "Terry Rozier",
+            "team": "MIA",
+            "advice": "pick up",
+            "urgency": 4,
+            "analysis": "Rozier is starting at point guard for the Miami Heat and had a solid debut. He was going too late in drafts, and despite missing time in the last two seasons, he has a strong health track record. Rozier has been a top 100 option in five straight years and is expected to play a ton of minutes, especially when Jimmy Butler or Tyler Herro miss time."
+        },
+        {
+            "name": "Buddy Hield",
+            "team": "GSW",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "Hield is a category specialist for three-pointers and has been among the league leaders in total threes. He is very durable, leading the NBA in total games played since entering the league. The move to Golden State brings some uncertainty, but he is expected to play a big role alongside Steph Curry and Draymond Green."
+        },
+        {
+            "name": "Cam Thomas",
+            "team": "BKN",
+            "advice": "pick up",
+            "urgency": 5,
+            "analysis": "Thomas is set for a high-usage season with the Brooklyn Nets, expected to have the green light all season long. He had a strong opener with a 34% usage rate and 34 points. The Nets are likely to be bad enough to avoid shutdown risk, making Thomas a valuable asset for points, threes, and free throws."
+        }
+    ]
+}

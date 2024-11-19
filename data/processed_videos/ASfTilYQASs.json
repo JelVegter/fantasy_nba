@@ -1,0 +1,134 @@
+{
+    "mentions": [
+        {
+            "name": "Paolo Banchero",
+            "team": "ORL",
+            "advice": "watch",
+            "urgency": 4,
+            "analysis": "Paolo Banchero is out for 4 to 6 weeks with a torn abdominal muscle. This is a significant injury, and his absence will impact the Orlando Magic's lineup. Fantasy managers should monitor the situation closely to see who steps up in his absence."
+        },
+        {
+            "name": "Jonathan Isaac",
+            "team": "ORL",
+            "advice": "watch",
+            "urgency": 3,
+            "analysis": "Jonathan Isaac might start in place of Paolo Banchero, but there are concerns about his ability to play extended minutes due to his injury history. He could be an interesting add if he starts, but his playing time is uncertain."
+        },
+        {
+            "name": "Moritz Wagner",
+            "team": "ORL",
+            "advice": "watch",
+            "urgency": 3,
+            "analysis": "There is speculation that Moritz Wagner could see more minutes or even start in Paolo Banchero's absence. However, he doesn't typically play power forward, so his role is uncertain."
+        },
+        {
+            "name": "Anthony Black",
+            "team": "ORL",
+            "advice": "pick up",
+            "urgency": 4,
+            "analysis": "Anthony Black is expected to start in place of Paolo Banchero. He might not score much, but he could contribute in other categories like steals, blocks, assists, and rebounds, making him a valuable fantasy pickup."
+        },
+        {
+            "name": "Wendell Carter Jr.",
+            "team": "ORL",
+            "advice": "pick up",
+            "urgency": 5,
+            "analysis": "Wendell Carter Jr. should be added if available, as his role is expected to be solidified with Paolo Banchero out. He is a clear add in this situation."
+        },
+        {
+            "name": "Royce O'Neale",
+            "team": "PHO",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "Royce O'Neale has been putting up decent numbers and is a good streaming option, especially with Bradley Beal out. His shooting was excellent in the last game, making him a viable short-term add."
+        },
+        {
+            "name": "Jalen Wells",
+            "team": "MEM",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "Jalen Wells started due to injuries to Desmond Bane and Marcus Smart. He performed well, making him a good streaming option in deeper leagues while those players are out."
+        },
+        {
+            "name": "Santi Aldama",
+            "team": "MEM",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "Santi Aldama started in place of injured players and had a good game. He is a streamable option while the Grizzlies deal with injuries."
+        },
+        {
+            "name": "Alperen Sengun",
+            "team": "HOU",
+            "advice": "hold",
+            "urgency": 2,
+            "analysis": "Alperen Sengun had a poor shooting night but maintained high usage and played significant minutes. His role remains secure, and fantasy managers should hold onto him."
+        },
+        {
+            "name": "Tari Eason",
+            "team": "HOU",
+            "advice": "watch",
+            "urgency": 2,
+            "analysis": "Tari Eason had a productive game in limited minutes. He is worth watching, especially if his playing time increases."
+        },
+        {
+            "name": "Amen Thompson",
+            "team": "HOU",
+            "advice": "watch",
+            "urgency": 2,
+            "analysis": "Amen Thompson is getting limited minutes but has shown potential. He is a player to watch for potential increased opportunities."
+        },
+        {
+            "name": "Victor Wembanyama",
+            "team": "SAS",
+            "advice": "hold",
+            "urgency": 2,
+            "analysis": "Victor Wembanyama had a standout performance with a 5x5 game, showcasing his potential. Despite early struggles, he remains a valuable fantasy asset."
+        },
+        {
+            "name": "Chris Paul",
+            "team": "SAS",
+            "advice": "hold",
+            "urgency": 2,
+            "analysis": "Chris Paul had a strong game and should be rostered. His performance was boosted by the opposing team's poor play."
+        },
+        {
+            "name": "Harrison Barnes",
+            "team": "SAS",
+            "advice": "drop",
+            "urgency": 3,
+            "analysis": "Harrison Barnes had a poor performance and is not worth rostering in 10, 12, or 14 team leagues."
+        },
+        {
+            "name": "Jeremy Sochan",
+            "team": "SAS",
+            "advice": "hold",
+            "urgency": 2,
+            "analysis": "Jeremy Sochan had a poor shooting night but contributed in other categories. He should not be dropped."
+        },
+        {
+            "name": "Collin Sexton",
+            "team": "UTA",
+            "advice": "watch",
+            "urgency": 3,
+            "analysis": "Collin Sexton had a good game due to Jordan Clarkson's injury. His role is uncertain, but he is worth watching."
+        },
+        {
+            "name": "Jusuf Nurkic",
+            "team": "PHO",
+            "advice": "watch",
+            "urgency": 3,
+            "analysis": "Jusuf Nurkic's minutes have been inconsistent, but he has potential value. Consider holding or dropping based on available replacements."
+        },
+        {
+            "name": "Derrick Jones Jr.",
+            "team": "LAC",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "Derrick Jones Jr. is worth adding in 12-team leagues due to his recent performances and potential for steals."
+        }
+    ],
+    "metadata": {
+        "date": "2024-11-01T07:40:19.022689+00:00",
+        "video_id": "ASfTilYQASs"
+    }
+}

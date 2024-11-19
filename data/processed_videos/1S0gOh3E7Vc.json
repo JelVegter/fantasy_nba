@@ -1,0 +1,134 @@
+{
+    "mentions": [
+        {
+            "name": "Khris Middleton",
+            "team": "MIL",
+            "advice": "avoid drafting",
+            "urgency": 4,
+            "analysis": "Repeated injuries and the team's lack of transparency about his health make him a risky pick."
+        },
+        {
+            "name": "Zion Williamson",
+            "team": "NOP",
+            "advice": "avoid drafting",
+            "urgency": 4,
+            "analysis": "Repeated injuries to the same part of the body are concerning."
+        },
+        {
+            "name": "Brook Lopez",
+            "team": "MIL",
+            "advice": "watch",
+            "urgency": 3,
+            "analysis": "With Bobby Portis doubtful, Lopez is expected to play big minutes and could have a significant impact."
+        },
+        {
+            "name": "Brandon Miller",
+            "team": "CHA",
+            "advice": "watch",
+            "urgency": 2,
+            "analysis": "Efficiency has been inconsistent, and there are questions about his ability to meet expectations."
+        },
+        {
+            "name": "Delon Wright",
+            "team": "DAL",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "Can contribute with rebounds, assists, and steals even if he doesn't score much."
+        },
+        {
+            "name": "Grant Williams",
+            "team": "CHA",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "With multiple players out, he's getting more minutes and has been rebounding well."
+        },
+        {
+            "name": "Moussa Diabate",
+            "team": "CHA",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "Benefiting from increased playing time due to injuries on the team."
+        },
+        {
+            "name": "Javonte Green",
+            "team": "NOP",
+            "advice": "stream",
+            "urgency": 2,
+            "analysis": "Starting due to injuries, but his performance has been inconsistent."
+        },
+        {
+            "name": "Cam Reddish",
+            "team": "LAL",
+            "advice": "stream",
+            "urgency": 2,
+            "analysis": "Can provide steals and some rebounds, but his scoring is limited."
+        },
+        {
+            "name": "D'Angelo Russell",
+            "team": "LAL",
+            "advice": "hold reluctantly",
+            "urgency": 2,
+            "analysis": "Despite poor performance, there's potential for improvement or a trade."
+        },
+        {
+            "name": "Brandon Boston Jr.",
+            "team": "NOP",
+            "advice": "add if available",
+            "urgency": 4,
+            "analysis": "High roster percentage indicates strong performance and potential."
+        },
+        {
+            "name": "Dereck Lively II",
+            "team": "DAL",
+            "advice": "watch",
+            "urgency": 3,
+            "analysis": "Started over Daniel Gafford and showed potential despite limited minutes due to fouls."
+        },
+        {
+            "name": "Quentin Grimes",
+            "team": "DAL",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "Performed well in recent games and could be a good option if injuries persist."
+        },
+        {
+            "name": "Julian Champagnie",
+            "team": "SAS",
+            "advice": "stream",
+            "urgency": 2,
+            "analysis": "Minutes are inconsistent, but he has potential to contribute."
+        },
+        {
+            "name": "Naji Marshall",
+            "team": "DAL",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "Improved shooting performance recently, making him a viable streaming option."
+        },
+        {
+            "name": "John Collins",
+            "team": "UTA",
+            "advice": "sell high",
+            "urgency": 4,
+            "analysis": "Currently performing well, but his role could change if the team adjusts their lineup."
+        },
+        {
+            "name": "Kyle Filipowski",
+            "team": "UTA",
+            "advice": "add",
+            "urgency": 5,
+            "analysis": "Starting and showing strong fantasy potential with a versatile skill set."
+        },
+        {
+            "name": "Keon Ellis",
+            "team": "SAC",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "With injuries on the team, he is a strong streaming option."
+        }
+    ],
+    "metadata": {
+        "date": "2024-11-16T09:00:09.902553+00:00",
+        "video_id": "1S0gOh3E7Vc"
+    }
+}

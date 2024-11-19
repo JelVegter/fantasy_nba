@@ -1,0 +1,99 @@
+{
+    "mentions": [
+        {
+            "name": "Mike Conley",
+            "team": "MIN",
+            "advice": "watch",
+            "urgency": 3,
+            "analysis": "It's really hard to consider Mike Conley a must hold if he's playing 24-25 minutes a night. There's probably enough evidence in the rotations that Chris Finch is using that that's not going to change."
+        },
+        {
+            "name": "Jaylen Smith",
+            "team": "CHI",
+            "advice": "stream",
+            "urgency": 2,
+            "analysis": "Jaylen Smith is probable for the game and could be a streaming option given the low volume days."
+        },
+        {
+            "name": "Patrick Williams",
+            "team": "CHI",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "Patrick Williams could be a stream option, especially if Zach LaVine is out, as he would likely get more minutes."
+        },
+        {
+            "name": "Ayo Dosunmu",
+            "team": "CHI",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "Ayo Dosunmu could be the stream guy if Zach LaVine is out, as he would likely get more minutes."
+        },
+        {
+            "name": "John Collins",
+            "team": "UTA",
+            "advice": "watch",
+            "urgency": 3,
+            "analysis": "John Collins has been ridiculously good, but his minutes have been low. It's uncertain if he will continue to have high production or revert to being waiver wire fodder."
+        },
+        {
+            "name": "Cody Williams",
+            "team": "UTA",
+            "advice": "stream",
+            "urgency": 2,
+            "analysis": "Cody Williams is expected to start for Utah but is a big do-nothing player. He could be a stream option for occasional points and rebounds."
+        },
+        {
+            "name": "Harrison Barnes",
+            "team": "SAS",
+            "advice": "stream",
+            "urgency": 2,
+            "analysis": "Harrison Barnes is worth a look as a stream option with three games on low volume days."
+        },
+        {
+            "name": "Alexandre Sarr",
+            "team": "WAS",
+            "advice": "pick up",
+            "urgency": 4,
+            "analysis": "Alexandre Sarr is underrepresented on rosters and should be added and started basically everywhere."
+        },
+        {
+            "name": "Julian Champagnie",
+            "team": "SAS",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "Julian Champagnie is a stream option available in many leagues, especially with Devin Vassell out."
+        },
+        {
+            "name": "Nikola Jovic",
+            "team": "MIA",
+            "advice": "watch",
+            "urgency": 2,
+            "analysis": "Nikola Jovic's value could rise if Lauri Markkanen is out, making him a potential stream option."
+        },
+        {
+            "name": "AJ Green",
+            "team": "MIL",
+            "advice": "watch",
+            "urgency": 2,
+            "analysis": "AJ Green can shoot and might get more minutes over Gary Trent Jr., but it's uncertain if this will continue."
+        },
+        {
+            "name": "Scoot Henderson",
+            "team": "POR",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "Scoot Henderson is a stream option, especially with Shaden Sharpe questionable and other players out."
+        },
+        {
+            "name": "Keldon Johnson",
+            "team": "SAS",
+            "advice": "watch",
+            "urgency": 3,
+            "analysis": "Keldon Johnson is someone to watch with the absence of Jeremy Sochan. He might start or play significant minutes off the bench."
+        }
+    ],
+    "metadata": {
+        "date": "2024-11-07T06:59:51.494299+00:00",
+        "video_id": "jvgac719vFQ"
+    }
+}

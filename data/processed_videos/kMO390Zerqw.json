@@ -1,0 +1,78 @@
+{
+    "mentions": [
+        {
+            "name": "Isaiah Stewart",
+            "team": "DET",
+            "advice": "pick up",
+            "urgency": 4,
+            "analysis": "With Jalen Duren doubtful for Sunday, Stewart is expected to get more playing time. Despite not being a good player, the opportunity often trumps that, making him worth a look."
+        },
+        {
+            "name": "Andre Drummond",
+            "team": "PHL",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "With Joel Embiid out, Drummond has the opportunity to play 30 minutes, which could be beneficial despite not being impressive recently."
+        },
+        {
+            "name": "Kyle Lowry",
+            "team": "PHL",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "Lowry played 30 minutes last game and, as the starting point guard, he can deliver assists, making him a good stream option."
+        },
+        {
+            "name": "Jared McCain",
+            "team": "PHL",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "McCain played 30 minutes last game and can score, making him a viable option for points and three-pointers."
+        },
+        {
+            "name": "Grayson Allen",
+            "team": "PHO",
+            "advice": "pick up",
+            "urgency": 2,
+            "analysis": "Allen's minutes are down, but he can still provide threes, making him a potential option for streaming in that category."
+        },
+        {
+            "name": "Keon Ellis",
+            "team": "SAC",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "Ellis is a strong option for steals, making him a good target for that category."
+        },
+        {
+            "name": "Cam Reddish",
+            "team": "LAL",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "Reddish replaced D'Angelo Russell in the starting lineup and is known for getting steals, making him a viable option for that category."
+        },
+        {
+            "name": "Cason Wallace",
+            "team": "OKC",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "Wallace is known for getting steals, making him a good option for streaming in that category."
+        },
+        {
+            "name": "Donovan Clingan",
+            "team": "POR",
+            "advice": "watch",
+            "urgency": 2,
+            "analysis": "With Robert Williams returning, Clingan's minutes might be limited, but he can still provide blocks in limited time."
+        },
+        {
+            "name": "Jay Huff",
+            "team": "MEM",
+            "advice": "watch",
+            "urgency": 2,
+            "analysis": "Huff is a good blocks player and, with many absences in Memphis, he is getting 15 minutes a night, which is strong for blocks."
+        }
+    ],
+    "metadata": {
+        "date": "2024-11-10T14:21:28.321871+00:00",
+        "video_id": "kMO390Zerqw"
+    }
+}

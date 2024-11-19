@@ -1,0 +1,144 @@
+{
+    "mentions": [
+        {
+            "name": "Lonzo Ball",
+            "team": "CHI",
+            "advice": "drop",
+            "urgency": 5,
+            "analysis": "Lonzo Ball is out with a wrist issue for at least 10 days, and it's advised not to roster him due to his injury status."
+        },
+        {
+            "name": "Jrue Holiday",
+            "team": "BOS",
+            "advice": "consider dropping",
+            "urgency": 3,
+            "analysis": "Jrue Holiday is being load managed and has not been performing well, barely ranking in the top 150 players. His minutes are being limited, and Payton Pritchard is playing better than him."
+        },
+        {
+            "name": "Payton Pritchard",
+            "team": "BOS",
+            "advice": "add",
+            "urgency": 4,
+            "analysis": "Payton Pritchard is playing significant minutes and performing well, making him a key part of the lineup. With Jrue Holiday's minutes being limited, Pritchard is a valuable addition."
+        },
+        {
+            "name": "Isaiah Jackson",
+            "team": "IND",
+            "advice": "stream",
+            "urgency": 4,
+            "analysis": "Isaiah Jackson started in place of the injured Miles Turner and performed well despite fouling out. As long as Turner is out, Jackson is a good streaming option."
+        },
+        {
+            "name": "Obi Toppin",
+            "team": "IND",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "Obi Toppin played 33 minutes and is worth streaming in situations where Miles Turner is out."
+        },
+        {
+            "name": "Andrew Nembhard",
+            "team": "IND",
+            "advice": "drop",
+            "urgency": 4,
+            "analysis": "Andrew Nembhard played only 5 minutes due to knee tendonitis and has been a borderline player. It's advised to drop him."
+        },
+        {
+            "name": "Bennedict Mathurin",
+            "team": "IND",
+            "advice": "watch",
+            "urgency": 2,
+            "analysis": "Bennedict Mathurin had a great game with 30 points and 11 rebounds, but his inconsistency makes it hard to trust him for consistent production."
+        },
+        {
+            "name": "Jonathan Mogbo",
+            "team": "TOR",
+            "advice": "add",
+            "urgency": 3,
+            "analysis": "Jonathan Mogbo started in place of the injured Scottie Barnes and performed well. He is worth adding, especially in deeper leagues."
+        },
+        {
+            "name": "Nick Richards",
+            "team": "CHA",
+            "advice": "add",
+            "urgency": 4,
+            "analysis": "Nick Richards is performing at a high level and is a top 50 player so far. With Mark Williams out, Richards is a must-add."
+        },
+        {
+            "name": "Trey Mann",
+            "team": "CHA",
+            "advice": "add",
+            "urgency": 3,
+            "analysis": "Trey Mann is playing well and needs to be rostered, especially with the current opportunities available."
+        },
+        {
+            "name": "Zach Collins",
+            "team": "SAS",
+            "advice": "add",
+            "urgency": 4,
+            "analysis": "Zach Collins is playing significant minutes and performing well, making him a valuable addition."
+        },
+        {
+            "name": "Bilal Coulibaly",
+            "team": "WAS",
+            "advice": "add",
+            "urgency": 4,
+            "analysis": "Bilal Coulibaly is playing well with significant minutes and usage, making him a valuable addition."
+        },
+        {
+            "name": "Andre Drummond",
+            "team": "PHL",
+            "advice": "consider dropping",
+            "urgency": 3,
+            "analysis": "Andre Drummond's performance without Joel Embiid is not encouraging, and stashing him may not be a good idea."
+        },
+        {
+            "name": "Kelly Oubre Jr.",
+            "team": "PHL",
+            "advice": "consider dropping",
+            "urgency": 3,
+            "analysis": "Kelly Oubre Jr. is not providing significant value, and his role will diminish when Paul George and Joel Embiid return."
+        },
+        {
+            "name": "Victor Wembanyama",
+            "team": "SAS",
+            "advice": "hold",
+            "urgency": 1,
+            "analysis": "Victor Wembanyama is struggling with low shot attempts, but it's advised not to panic as this is expected to adjust."
+        },
+        {
+            "name": "Dennis Schroder",
+            "team": "CHA",
+            "advice": "sell high",
+            "urgency": 3,
+            "analysis": "Dennis Schroder is performing at an unsustainable level, making him a sell-high candidate."
+        },
+        {
+            "name": "Cason Wallace",
+            "team": "OKC",
+            "advice": "watch",
+            "urgency": 2,
+            "analysis": "Cason Wallace is a great source of steals and is worth watching, especially in deeper leagues."
+        },
+        {
+            "name": "Jose Alvarado",
+            "team": "NOP",
+            "advice": "add",
+            "urgency": 4,
+            "analysis": "With CJ McCollum out, Jose Alvarado is playing significant minutes and is a must-add."
+        },
+        {
+            "name": "Jordan Hawkins",
+            "team": "NOP",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "Jordan Hawkins is getting significant minutes due to injuries, making him a good streaming option."
+        },
+        {
+            "name": "Evan Mobley",
+            "team": "CLE",
+            "advice": "hold",
+            "urgency": 1,
+            "analysis": "Evan Mobley is a top 20 player despite foul trouble and limited minutes in the recent game."
+        }
+    ]
+}

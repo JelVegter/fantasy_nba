@@ -1,0 +1,78 @@
+{
+    "mentions": [
+        {
+            "name": "Jose Alvarado",
+            "team": "NOP",
+            "advice": "pick up",
+            "urgency": 5,
+            "analysis": "With Deonte Murray, CJ McCollum, Trey Murphy, and Herb Jones out, Alvarado is a must-roster player due to the lack of guards available. He will get a lot of opportunities and is expected to play significant minutes."
+        },
+        {
+            "name": "Jordan Hawkins",
+            "team": "NOP",
+            "advice": "pick up",
+            "urgency": 5,
+            "analysis": "Similar to Alvarado, Hawkins is a must-roster player with multiple guards out for New Orleans. He is expected to play significant minutes and has a high opportunity for scoring and three-pointers."
+        },
+        {
+            "name": "Moritz Wagner",
+            "team": "ORL",
+            "advice": "pick up",
+            "urgency": 4,
+            "analysis": "With Paolo Banchero out and Wendell Carter Jr. questionable, Wagner becomes a must-add player. He could start and play significant minutes, increasing his scoring and rebounding opportunities."
+        },
+        {
+            "name": "Eve Missi",
+            "team": "NOP",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "Missi is a great streaming option due to increased playing time with current injuries. He has potential for blocks and rebounds."
+        },
+        {
+            "name": "Tim Hardaway Jr.",
+            "team": "DAL",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "Hardaway is a boom-bust option for points and three-pointers. With limited teams playing, he has an opportunity to play significant minutes."
+        },
+        {
+            "name": "Jonathan Isaac",
+            "team": "ORL",
+            "advice": "watch",
+            "urgency": 2,
+            "analysis": "Isaac has potential for steals and blocks, but his playing time is uncertain due to his recovery from injury. He could be valuable if he plays more minutes."
+        },
+        {
+            "name": "Anthony Black",
+            "team": "ORL",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "With Paolo Banchero out, Black is expected to start and could provide assists. His shooting may be inconsistent, but he has potential for six or seven assists."
+        },
+        {
+            "name": "Ziaire Williams",
+            "team": "BKN",
+            "advice": "watch",
+            "urgency": 2,
+            "analysis": "Williams could see increased playing time if Ben Simmons is out. He has potential for scoring and three-pointers."
+        },
+        {
+            "name": "Malik Beasley",
+            "team": "DET",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "Beasley is a good option for three-pointers. He has the potential to hit multiple threes in a game."
+        },
+        {
+            "name": "Garrison Mathews",
+            "team": "ATL",
+            "advice": "watch",
+            "urgency": 2,
+            "analysis": "Mathews could be a good option for three-pointers if Dyson Daniels plays less. His upside is limited but he can contribute in this category."
+        }
+    ],
+    "metadata": {
+        "date": "2024-11-03T09:06:22.241544+00:00",
+        "video_id": "WI7-GxRsYTg"
+    }
+}

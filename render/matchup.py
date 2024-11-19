@@ -8,6 +8,8 @@ import json
 
 from dataclasses import dataclass
 
+FANTASY_ROSTER_INDEX = 6 if len(FANTASY_ROSTERS) > 5 else 0
+
 
 @dataclass
 class FilterOptions:
@@ -114,18 +116,17 @@ def setup_sidebar(df_base: pl.DataFrame) -> Filters:
             positions=df_base["position"].unique().to_list(),
         )
 
-    fantasy_roster_1_index = 4 if len(FANTASY_ROSTERS) > 5 else 0
     fantasy_roster_1_name = st.sidebar.selectbox(
         "Fantasy Roster 1",
         FANTASY_ROSTERS,
-        index=fantasy_roster_1_index,
+        index=FANTASY_ROSTER_INDEX,
         key="fantasy_roster_name",
     )
-    fantasy_roster_2_index = 4 if len(FANTASY_ROSTERS) > 5 else 0
+
     fantasy_roster_2_name = st.sidebar.selectbox(
         "Fantasy Roster 2",
         FANTASY_ROSTERS,
-        index=fantasy_roster_2_index,
+        index=FANTASY_ROSTER_INDEX,
         key="fantasy_roster_2_name",
     )
     injury_status = st.sidebar.multiselect(

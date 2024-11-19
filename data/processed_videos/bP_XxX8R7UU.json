@@ -1,0 +1,43 @@
+{
+    "mentions": [
+        {
+            "name": "Mike Conley",
+            "team": "MIN",
+            "advice": "watch",
+            "urgency": 3,
+            "analysis": "Conley has had a few serviceable games with decent steals and assists, but his role might be limited due to a minute split with Dante DiVincenzo. His performance is about 15% off expectations, so it's important to monitor his role and production."
+        },
+        {
+            "name": "Herb Jones",
+            "team": "NOP",
+            "advice": "watch",
+            "urgency": 3,
+            "analysis": "Jones has not been involved offensively but historically goes through stretches of increased involvement. His minutes are consistent, so it's worth watching if he gets back into the mix with better scoring and defensive stats."
+        },
+        {
+            "name": "Alex Caruso",
+            "team": "OKC",
+            "advice": "drop",
+            "urgency": 4,
+            "analysis": "Caruso's role is significantly different than expected, playing only 21 minutes a night as part of a reserve swarm. His production is off by 30-40% from expectations, making him a candidate for dropping in favor of more consistent performers."
+        },
+        {
+            "name": "Jordan Poole",
+            "team": "WAS",
+            "advice": "sell high",
+            "urgency": 4,
+            "analysis": "Poole is currently overperforming, ranked as a top 5 player, but his stats like 51% shooting and 3 steals per game are unsustainable. It's a good time to trade him for a more stable top 50 player who is underperforming."
+        },
+        {
+            "name": "Cason Wallace",
+            "team": "OKC",
+            "advice": "stream",
+            "urgency": 2,
+            "analysis": "Wallace is a good streaming option for steals, having picked up 3 steals in a game. He doesn't offer much else, but for teams needing steals, he can be a useful short-term pickup."
+        }
+    ],
+    "metadata": {
+        "date": "2024-10-31T12:28:09.406727+00:00",
+        "video_id": "bP_XxX8R7UU"
+    }
+}

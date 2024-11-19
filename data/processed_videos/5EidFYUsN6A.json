@@ -1,0 +1,32 @@
+{
+    "mentions": [
+        {
+            "name": "Ivica Zubac",
+            "team": "LAC",
+            "advice": "pick up",
+            "urgency": 5,
+            "analysis": "Zubac is only 40% rostered in ESPN leagues, and his minutes are expected to increase this season due to the Clippers' lack of depth at center. He is dependable, rarely misses games, and provides solid points, rebounds, blocks, and decent free throw shooting."
+        },
+        {
+            "name": "Onyeka Okongwu",
+            "team": "ATL",
+            "advice": "pick up",
+            "urgency": 4,
+            "analysis": "Okongwu had a career-high 28 points in the opening games and is only 36% rostered in ESPN leagues. The Hawks have invested in him, and he could move into a larger role, especially with Clint Capela's injury history and expiring contract."
+        },
+        {
+            "name": "Andre Drummond",
+            "team": "PHL",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "With Joel Embiid's availability in question and his expected limited games, Drummond could be the starting center for a third of the season. Despite his free throw shooting issues, he is the best per-minute rebounder and can provide points and steals."
+        },
+        {
+            "name": "Dyson Daniels",
+            "team": "ATL",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "Daniels started at shooting guard for the Hawks and is valued for his defense. He had five steals in 35 minutes on opening night and is a consistent source of steals. He is only 20% rostered in ESPN leagues and 36% in Yahoo leagues."
+        }
+    ]
+}

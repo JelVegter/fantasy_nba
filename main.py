@@ -6,6 +6,7 @@ from render import free_agent
 from render import team_schedule
 from render import game_gap
 from render import matchup
+from render import podcast
 
 
 def main():
@@ -21,6 +22,7 @@ def main():
     # ---------------------------------------------#
     app = MultiPage()
     app.add_page("Free Agents", free_agent.app)
+    app.add_page("Podcast Suggestions", podcast.app)
     app.add_page("Team Schedule", team_schedule.app)
     app.add_page("Game Gap", game_gap.app)
     app.add_page("Matchup", matchup.app)

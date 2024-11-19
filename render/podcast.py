@@ -5,8 +5,12 @@ from data.db import DB_URI
 import polars as pl
 from logs import logger
 import json
+from typing import Optional
+import os
 
 from dataclasses import dataclass
+from youtube_transcript_api import YouTubeTranscriptApi
+from llm import extract_player_mentions, process_video, PROCESSED_VIDEOS_PATH
 
 FANTASY_ROSTER_INDEX = 6 if len(FANTASY_ROSTERS) > 5 else 0
 
@@ -48,6 +52,39 @@ def get_players_base() -> pl.DataFrame:
     return df
 
 
+def fetch_transcript(video_id: str) -> str:
+    """Fetches the transcript for a given YouTube video ID."""
+    try:
+        transcript_data = YouTubeTranscriptApi.get_transcript(video_id)
+        transcript = " ".join([segment["text"] for segment in transcript_data])
+        return transcript
+    except Exception as e:
+        logger.error(f"Failed to retrieve transcript for video {video_id}: {e}")
+        return ""
+
+
+def get_processed_videos() -> list[str]:
+    """Get a list of previously processed video IDs."""
+    video_files = [f for f in os.listdir(PROCESSED_VIDEOS_PATH) if f.endswith(".json")]
+    return [f.replace(".json", "") for f in video_files]
+
+
+def process_youtube_videos(
+    video_urls: list, players: Optional[list[dict]]
+) -> pl.DataFrame:
+    """
+    Process a list of YouTube URLs to extract player mentions.
+    """
+    mentioned_players = []
+
+    for url in video_urls:
+        video_id = url.split("v=")[-1]
+        video_id = video_id.split("&")[0]
+        mentioned_players.extend(process_video(video_id, players))
+
+    return pl.DataFrame(mentioned_players)
+
+
 def apply_fa_filters(df: pl.DataFrame, filters: Filters) -> pl.DataFrame:
     """Apply filters to the DataFrame based on Filters instance."""
     df = df.filter(df["is_free_agent"] == 1)
@@ -78,7 +115,6 @@ def log_filters(**filters) -> None:
     for key, value in filters.items():
         logger.debug(f"{key}: {value}")
     logger.info(json.dumps(filters, indent=4))
-    print(json.dumps(filters, indent=4))
     logger.debug("-" * 25)
 
 
@@ -107,14 +143,6 @@ def filter_columns(df: pl.DataFrame, columns: list[str]) -> pl.DataFrame:
     return df.select(columns)
 
 
-def find_rising_stars(df: pl.DataFrame) -> pl.DataFrame:
-    # IF avg_last_7 is more than 50% higher than avg_last_30 and if points at least 25
-    return df.filter(
-        (pl.col("avg_last_7") > 25)
-        & (pl.col("avg_last_7") > pl.col("avg_last_30") * 1.3)
-    )
-
-
 def setup_sidebar(df: pl.DataFrame) -> Filters:
     """Setup Streamlit sidebar for filtering and return a Filters instance."""
 
@@ -127,6 +155,20 @@ def setup_sidebar(df: pl.DataFrame) -> Filters:
             team_abbrevs=df["team_abbrev"].unique().to_list(),
             positions=df["position"].unique().to_list(),
         )
+
+    # Add video selection
+    processed_videos = get_processed_videos()
+    selected_videos = st.sidebar.multiselect(
+        "Select Previously Processed Videos",
+        processed_videos,
+        default=[processed_videos[0]] if processed_videos else None,
+        format_func=lambda x: f"Video: {x}",
+    )
+
+    # Keep the URL input for new videos
+    new_video_urls = st.sidebar.text_area(
+        "Or Enter New YouTube URLs (one per line)"
+    ).splitlines()
 
     fantasy_roster_name = st.sidebar.selectbox(
         "Fantasy Roster",
@@ -164,6 +206,10 @@ def setup_sidebar(df: pl.DataFrame) -> Filters:
 
     day_offset = st.sidebar.slider("Day Offset", 0, 6, (0, 6), key="day_offset")
 
+    # Store selected videos in session state
+    st.session_state.selected_videos = selected_videos
+    st.session_state.new_video_urls = new_video_urls
+
     return Filters(
         fantasy_roster_name, injury_status, free_agent, teams, position, day_offset
     )
@@ -174,8 +220,37 @@ def app():
     df_base = get_players_base()
     filters = setup_sidebar(df_base)
 
+    players = df_base.select(["name", "team_abbrev"]).unique().to_dicts()
+
+    # Process both selected videos and new URLs
+    video_urls = []
+
+    # Add URLs for selected processed videos
+    if hasattr(st.session_state, "selected_videos"):
+        video_urls.extend(
+            [
+                f"https://www.youtube.com/watch?v={vid}"
+                for vid in st.session_state.selected_videos
+            ]
+        )
+
+    # Add new video URLs
+    if hasattr(st.session_state, "new_video_urls"):
+        video_urls.extend(st.session_state.new_video_urls)
+
+    # Process videos
+    if video_urls:
+        logger.info(f"Processing {len(video_urls)} videos")
+        for url in video_urls:
+            logger.info(f"Processing video {url}")
+        player_mentions_df = process_youtube_videos(video_urls, players)
+    else:
+        st.warning(
+            "Please select previously processed videos or enter new YouTube URLs"
+        )
+        return
+
     # Calculate projections per player, filtered by a date range
-    # Aggregate projections
     df_projections = df_projections.filter(
         pl.col("day_of_year").is_in(
             range(
@@ -184,62 +259,75 @@ def app():
             )
         )
     )
-
     df_projections_agg = aggregate_data(df_projections)
 
-    # Filter the free agent and roster DataFrames, then add the aggregated projections
-    df_free_agent = apply_fa_filters(df_base, filters)
-    df_free_agent = df_free_agent.join(df_projections_agg, on="name", how="left")
-    df_free_agent = df_free_agent.with_columns(
+    # Get base player data
+    df_players = df_base.join(df_projections_agg, on="name", how="left")
+    df_players = df_players.with_columns(
         pl.col("fantasy_points").mul(pl.col("games")).alias("sum_fantasy_points")
     )
-    df_free_agent = df_free_agent.filter(pl.col("sum_fantasy_points").is_not_null())
+    df_players = df_players.filter(pl.col("sum_fantasy_points").is_not_null())
 
-    # df_projections_agg = aggregate_data(df_projections)
-
-    # # Filter the free agent and roster DataFrames, then add the aggregated projections
-    # df_free_agent = df_projections_agg.join(df_projections_agg, on="name", how="left")
-    # df_free_agent = apply_fa_filters(df_base, filters)
-    # df_free_agent = apply_fa_filters(df_base, filters)
-    # df_free_agent = df_free_agent.join(df_projections, on="name", how="left")
-
-    # df_projections_agg = aggregate_data(df_free_agent)
-    # # Filter the free agent and roster DataFrames, then add the aggregated projections
-
-    df_rising_stars = find_rising_stars(df_free_agent)
-    df_rising_stars = df_rising_stars.with_columns(
-        pl.col("fantasy_points").mul(pl.col("games")).alias("sum_fantasy_points")
+    # Join with player mentions to get analysis data
+    df_analysis = df_players.join(
+        player_mentions_df.select(["name", "advice", "urgency", "analysis"]),
+        on="name",
+        how="inner",
     )
-    df_rising_stars = df_rising_stars.filter(pl.col("sum_fantasy_points").is_not_null())
 
+    # Print players that were mentioned but didn't join
+    mentioned_players = set(player_mentions_df["name"].to_list())
+    joined_players = set(df_analysis["name"].to_list())
+    missing_players = mentioned_players - joined_players
+
+    if missing_players:
+        st.warning("Players mentioned but not in database:")
+        for player in missing_players:
+            st.write(f"- {player}")
+
+    # Reorder columns by creating a new selection with desired order
+    analysis_cols = ["name", "advice", "urgency", "analysis", "is_free_agent"]
+    remaining_cols = [col for col in PLAYER_POINTS_COLS if col != "name"]
+    display_cols = analysis_cols + remaining_cols
+
+    # Display combined analysis and stats
+    st.title("Player Analysis")
+    if not df_analysis.is_empty():
+        # Sort by urgency if present, otherwise by fantasy points
+        df_display = df_analysis.sort("urgency", descending=True)
+
+        st.dataframe(
+            df_display.select(display_cols).to_pandas(),
+            height=400,
+            width=1000,
+        )
+    else:
+        st.write("No analyzed players found in free agents pool.")
+
+    # Render Fantasy Roster Table
+    st.title(filters.fantasy_roster_name)
     df_roster_player = apply_roster_filters(df_base, filters)
     df_roster_player = df_roster_player.join(df_projections_agg, on="name", how="left")
+    # Add the same fantasy points calculation as before
     df_roster_player = df_roster_player.with_columns(
         pl.col("fantasy_points").mul(pl.col("games")).alias("sum_fantasy_points")
     )
-
-    # Render Dataframes
-    e = st.columns(1)[0]
-    e.title("Rising Stars")
-    df_rising_stars = filter_columns(
-        df_rising_stars,
-        PLAYER_POINTS_COLS,
+    df_roster_player = df_roster_player.filter(
+        pl.col("sum_fantasy_points").is_not_null()
     )
-    e.dataframe(df_rising_stars.to_pandas(), height=200, width=1000)
 
-    e = st.columns(1)[0]
-    e.title("Free Agents")
-    df_free_agent = filter_columns(
-        df_free_agent,
-        PLAYER_POINTS_COLS,
+    # Join with player mentions to add analysis columns
+    df_roster_player = df_roster_player.join(
+        player_mentions_df.select(["name", "advice", "urgency"]), on="name", how="left"
     )
-    e.dataframe(df_free_agent.to_pandas(), height=400, width=1000)
 
-    f = st.columns(1)[0]
-    f.title(f"{filters.fantasy_roster_name}")
-    df_roster_player = filter_columns(
-        df_roster_player,
-        PLAYER_POINTS_COLS,
+    # Reorder columns to put name, advice, urgency first
+    roster_display_cols = ["name", "advice", "urgency"] + [
+        col for col in PLAYER_POINTS_COLS if col != "name"
+    ]
+
+    st.dataframe(
+        filter_columns(df_roster_player, roster_display_cols).to_pandas(),
+        height=400,
+        width=1000,
     )
-    # Render Dataframe
-    f.dataframe(df_roster_player.to_pandas(), height=400, width=1000)

@@ -1,0 +1,127 @@
+{
+    "mentions": [
+        {
+            "name": "Payton Pritchard",
+            "team": "BOS",
+            "advice": "watch",
+            "urgency": 2,
+            "analysis": "Pritchard had a 38-minute performance and was a three-point stream option. However, his role is not secure, and his minutes may fluctuate."
+        },
+        {
+            "name": "Isaiah Jackson",
+            "team": "IND",
+            "advice": "pick up",
+            "urgency": 4,
+            "analysis": "Jackson is a terrific fill-in streamer whenever Miles Turner is out. He provides points, steals, blocks, and good field goal percentage."
+        },
+        {
+            "name": "Grady Dick",
+            "team": "TOR",
+            "advice": "watch",
+            "urgency": 3,
+            "analysis": "With Scottie Barnes out, Dick has more opportunity. However, his fantasy game has glaring holes, and his role may change when Immanuel Quickley returns."
+        },
+        {
+            "name": "RJ Barrett",
+            "team": "TOR",
+            "advice": "play",
+            "urgency": 3,
+            "analysis": "Barrett has high usage with Barnes and Quickley out, despite having many fantasy holes."
+        },
+        {
+            "name": "Nick Richards",
+            "team": "CHA",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "Richards is on a hot streak with high rebounds and blocks. However, his performance may not be sustainable long-term, and Mark Williams will return."
+        },
+        {
+            "name": "Zaccharie Risacher",
+            "team": "ATL",
+            "advice": "play",
+            "urgency": 3,
+            "analysis": "With multiple injuries on the Hawks, Risacher is getting significant minutes and shots, making him a viable fantasy option."
+        },
+        {
+            "name": "Bilal Coulibaly",
+            "team": "WAS",
+            "advice": "pick up",
+            "urgency": 5,
+            "analysis": "Coulibaly had a breakout game with high points, rebounds, and defensive stats. His shooting percentages are unsustainable, but his role is expanding."
+        },
+        {
+            "name": "Alexandre Sarr",
+            "team": "WAS",
+            "advice": "pick up",
+            "urgency": 4,
+            "analysis": "Sarr is putting up numbers in limited minutes, and his fantasy stock is expected to rise as the season progresses."
+        },
+        {
+            "name": "Isaiah Stewart",
+            "team": "DET",
+            "advice": "watch",
+            "urgency": 2,
+            "analysis": "Stewart benefited from Jalen Duren's foul trouble, but his role is not secure enough for a long-term pickup."
+        },
+        {
+            "name": "Jaden Ivey",
+            "team": "DET",
+            "advice": "hold",
+            "urgency": 3,
+            "analysis": "Ivey has good percentages and counting stats, making him suitable for head-to-head leagues, but risky for Roto due to potential volatility."
+        },
+        {
+            "name": "Dennis Schroder",
+            "team": "BKN",
+            "advice": "trade",
+            "urgency": 4,
+            "analysis": "Schroder is performing at a high level, but his shooting percentages are unsustainable. Trading him for a top 50-60 player is advisable."
+        },
+        {
+            "name": "Jonathan Isaac",
+            "team": "ORL",
+            "advice": "watch",
+            "urgency": 3,
+            "analysis": "Isaac is returning from injury and needs to increase his minutes to 20 for consistent fantasy value."
+        },
+        {
+            "name": "Victor Wembanyama",
+            "team": "SAS",
+            "advice": "buy low",
+            "urgency": 4,
+            "analysis": "Wembanyama is currently underperforming, making him a potential buy-low candidate for those willing to trade a first-round player."
+        },
+        {
+            "name": "Jordan Hawkins",
+            "team": "NOP",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "With multiple Pelicans players injured, Hawkins is getting significant shot opportunities, making him a viable short-term stream."
+        },
+        {
+            "name": "Jose Alvarado",
+            "team": "NOP",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "Alvarado is a good stream option if CJ McCollum remains out, as he will have increased opportunities."
+        },
+        {
+            "name": "Buddy Hield",
+            "team": "GSW",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "With Stephen Curry out, Hield is taking on more shots and is a good streaming option."
+        },
+        {
+            "name": "Trace Jackson-Davis",
+            "team": "GSW",
+            "advice": "watch",
+            "urgency": 2,
+            "analysis": "Jackson-Davis is getting limited minutes, and while he has potential, he needs more consistent playing time to be a reliable fantasy option."
+        }
+    ],
+    "metadata": {
+        "date": "2024-11-01T07:50:27.306449+00:00",
+        "video_id": "QoWgF_FMfN8"
+    }
+}

@@ -1,0 +1,190 @@
+{
+    "mentions": [
+        {
+            "name": "Walker Kessler",
+            "team": "UTA",
+            "advice": "watch",
+            "urgency": 3,
+            "analysis": "Walker Kessler is out with a hip injury, and there is no clear timeframe for his return. This situation prolongs the opportunity for John Collins and benefits players like Drew Eubanks and Kyle Filipowski in deeper leagues."
+        },
+        {
+            "name": "Moses Brown",
+            "team": "IND",
+            "advice": "consider in deep leagues",
+            "urgency": 2,
+            "analysis": "Moses Brown has been signed by Indiana due to a lack of centers. While he's not recommended for 10, 12, or 14 team leagues, he could be considered in 18, 20, or deeper leagues if Miles Turner remains out."
+        },
+        {
+            "name": "Dalton Knecht",
+            "team": "LAL",
+            "advice": "pick up",
+            "urgency": 4,
+            "analysis": "Dalton Knecht has been performing well, placing in the top 100 over the last few games. With Cam Reddish set to return and Rui Hachimura not practicing, Knecht's opportunities remain strong."
+        },
+        {
+            "name": "Vince Williams Jr.",
+            "team": "MEM",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "Vince Williams Jr. has been added in many leagues. There is concern about his availability on back-to-backs, but he is seen as a longer-term option."
+        },
+        {
+            "name": "Robert Williams III",
+            "team": "POR",
+            "advice": "add",
+            "urgency": 4,
+            "analysis": "Robert Williams III should be rostered as his potential to 'blow up' is high, especially with uncertainty around Deandre Ayton's return."
+        },
+        {
+            "name": "John Isaac",
+            "team": "ORL",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "John Isaac's minutes have been trending up, making him a speculative add to get ahead of potential increased production."
+        },
+        {
+            "name": "Malik Beasley",
+            "team": "DET",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "Malik Beasley continues to have a sizable role even with Tim Hardaway Jr. returning. He remains a points and threes stream option."
+        },
+        {
+            "name": "Jay Huff",
+            "team": "MEM",
+            "advice": "add",
+            "urgency": 3,
+            "analysis": "With Zach Edey out, Jay Huff is a stream option for the Grizzlies and should be considered for addition."
+        },
+        {
+            "name": "Alex Caruso",
+            "team": "OKC",
+            "advice": "consider",
+            "urgency": 2,
+            "analysis": "Alex Caruso is not a must-add, but his defensive stats make him a short-term consideration, especially with the Thunder's back-to-back games."
+        },
+        {
+            "name": "Tim Hardaway Jr.",
+            "team": "DET",
+            "advice": "watch",
+            "urgency": 2,
+            "analysis": "Tim Hardaway Jr. returned to the starting lineup but had a poor shooting game. His performance is volatile, and he should be watched for potential improvement."
+        },
+        {
+            "name": "Jalen Duren",
+            "team": "DET",
+            "advice": "hold",
+            "urgency": 3,
+            "analysis": "Jalen Duren had a strong game against the Bulls with 15 points and 22 rebounds. His performance was aided by the Bulls' fast pace and poor defense."
+        },
+        {
+            "name": "Jaden Ivey",
+            "team": "DET",
+            "advice": "consider dropping",
+            "urgency": 2,
+            "analysis": "Jaden Ivey had a poor game with bad shooting and no defensive stats. His inconsistency under Monty Williams makes him a candidate for dropping in some leagues."
+        },
+        {
+            "name": "Tobias Harris",
+            "team": "DET",
+            "advice": "hold",
+            "urgency": 3,
+            "analysis": "Tobias Harris is in a slump but should not be dropped. His performance is expected to improve."
+        },
+        {
+            "name": "Jared McCain",
+            "team": "PHL",
+            "advice": "hold",
+            "urgency": 3,
+            "analysis": "Jared McCain continues to perform well with high minutes and usage. However, his role may change with Tyrese Maxey's return."
+        },
+        {
+            "name": "Caleb Martin",
+            "team": "PHL",
+            "advice": "stream",
+            "urgency": 2,
+            "analysis": "Caleb Martin had a solid game with two steals and 12 points. He remains a streaming option while the team is not at full strength."
+        },
+        {
+            "name": "Duncan Robinson",
+            "team": "MIA",
+            "advice": "stream",
+            "urgency": 2,
+            "analysis": "Duncan Robinson started in place of Terry Rozier and had 13 points. He is a streaming option but not a long-term hold."
+        },
+        {
+            "name": "Corey Kispert",
+            "team": "WAS",
+            "advice": "consider in deeper leagues",
+            "urgency": 2,
+            "analysis": "Corey Kispert had a good game with 18 points and six rebounds. He is a consideration for deeper leagues."
+        },
+        {
+            "name": "Keegan Murray",
+            "team": "SAC",
+            "advice": "hold",
+            "urgency": 3,
+            "analysis": "Keegan Murray had a poor game with seven points and fouled out. Despite his struggles, he should be held in 12-team leagues."
+        },
+        {
+            "name": "Tari Eason",
+            "team": "HOU",
+            "advice": "hold",
+            "urgency": 3,
+            "analysis": "Tari Eason had a strong game with nine points, 14 rebounds, four steals, and three blocks. His minutes may fluctuate, but he should be rostered."
+        },
+        {
+            "name": "Fred VanVleet",
+            "team": "HOU",
+            "advice": "hold",
+            "urgency": 4,
+            "analysis": "Fred VanVleet is settling into his role with consistent performances, including 26 points and six assists."
+        },
+        {
+            "name": "Brook Lopez",
+            "team": "MIL",
+            "advice": "hold",
+            "urgency": 4,
+            "analysis": "Brook Lopez had a massive game with 27 points, 10 rebounds, five threes, three steals, and four blocks. His performance is inconsistent, but he should be held."
+        },
+        {
+            "name": "Anthony Black",
+            "team": "ORL",
+            "advice": "consider",
+            "urgency": 3,
+            "analysis": "Anthony Black had a breakout game with 20 points, nine assists, and three steals. While this performance is promising, his role is not yet secure."
+        },
+        {
+            "name": "Goga Bitadze",
+            "team": "ORL",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "Goga Bitadze had a strong game with 17 points and 10 rebounds. He is a streaming option until Wendell Carter Jr. returns."
+        },
+        {
+            "name": "Oso Ighodaro",
+            "team": "PHO",
+            "advice": "stream",
+            "urgency": 2,
+            "analysis": "Oso Ighodaro had a solid game with 12 points and seven rebounds. He is a short-term option while key players are out."
+        },
+        {
+            "name": "Mason Plumlee",
+            "team": "PHO",
+            "advice": "stream",
+            "urgency": 3,
+            "analysis": "Mason Plumlee started and had eight points, 11 rebounds, and six assists. He is a streaming option while Jusuf Nurkic is out."
+        },
+        {
+            "name": "Keon Ellis",
+            "team": "SAC",
+            "advice": "consider",
+            "urgency": 3,
+            "analysis": "Keon Ellis had a surprising game with 33 points and nine threes. While this performance is out of the blue, he may get more opportunities in the short term."
+        }
+    ],
+    "metadata": {
+        "date": "2024-11-19T17:28:56.999587+00:00",
+        "video_id": "oBUKYnmeiW4"
+    }
+}

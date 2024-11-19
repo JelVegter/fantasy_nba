@@ -1,0 +1,113 @@
+{
+    "mentions": [
+        {
+            "name": "Zion Williamson",
+            "team": "NOP",
+            "advice": "drop",
+            "urgency": 5,
+            "analysis": "Zion Williamson has been complaining of soreness since about game two and now has strained his hamstring. He is expected to be out for a minimum of three weeks, possibly longer, due to repeated mismanagement of his hamstring injuries."
+        },
+        {
+            "name": "Trey Murphy III",
+            "team": "NOP",
+            "advice": "pick up",
+            "urgency": 4,
+            "analysis": "Trey Murphy is returning from a long-term injury and is expected to play significant minutes with Zion Williamson out."
+        },
+        {
+            "name": "BJ Boston",
+            "team": "NOP",
+            "advice": "pick up",
+            "urgency": 4,
+            "analysis": "With multiple injuries on the Pelicans, BJ Boston is expected to get a lot of shots and play a lot of minutes."
+        },
+        {
+            "name": "Jose Alvarado",
+            "team": "NOP",
+            "advice": "pick up",
+            "urgency": 4,
+            "analysis": "Jose Alvarado is a must-roster player with the current injuries on the Pelicans, including Zion Williamson and CJ McCollum."
+        },
+        {
+            "name": "Jeremiah Robinson-Earl",
+            "team": "NOP",
+            "advice": "watch",
+            "urgency": 3,
+            "analysis": "Jeremiah Robinson-Earl might start depending on how the Pelicans decide to use Trey Murphy and Brandon Ingram."
+        },
+        {
+            "name": "Aaron Gordon",
+            "team": "DEN",
+            "advice": "drop",
+            "urgency": 4,
+            "analysis": "Aaron Gordon is expected to be out for multiple weeks, making him a drop candidate in fantasy leagues."
+        },
+        {
+            "name": "Payton Watson",
+            "team": "DEN",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "With Aaron Gordon out, Payton Watson is a potential add, although Denver's schedule is not favorable this week."
+        },
+        {
+            "name": "Andrew Nembhard",
+            "team": "IND",
+            "advice": "drop",
+            "urgency": 3,
+            "analysis": "Indiana has no games on low volume days, making Andrew Nembhard less valuable for streaming this week."
+        },
+        {
+            "name": "Obi Toppin",
+            "team": "IND",
+            "advice": "drop",
+            "urgency": 3,
+            "analysis": "Indiana has no games on low volume days, making Obi Toppin less valuable for streaming this week."
+        },
+        {
+            "name": "Jalen Duren",
+            "team": "DET",
+            "advice": "watch",
+            "urgency": 3,
+            "analysis": "Jalen Duren missed the last game with an ankle sprain. It's not expected to be serious, but he might miss a game or two."
+        },
+        {
+            "name": "Zach LaVine",
+            "team": "CHI",
+            "advice": "watch",
+            "urgency": 3,
+            "analysis": "Zach LaVine has missed a few games with a groin problem. There's an 80% chance he will be available for week four."
+        },
+        {
+            "name": "Jimmy Butler",
+            "team": "MIA",
+            "advice": "watch",
+            "urgency": 3,
+            "analysis": "Jimmy Butler rolled his ankle and his availability for week four is uncertain."
+        },
+        {
+            "name": "Keegan Murray",
+            "team": "SAC",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "Sacramento has a favorable schedule with five games in seven nights, making Keegan Murray a valuable pick-up."
+        },
+        {
+            "name": "Kevin Huerter",
+            "team": "SAC",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "Sacramento has a favorable schedule with five games in seven nights, making Kevin Huerter a valuable pick-up."
+        },
+        {
+            "name": "Khris Middleton",
+            "team": "MIL",
+            "advice": "drop",
+            "urgency": 4,
+            "analysis": "Khris Middleton is not expected to return soon due to ongoing injury issues, making him a drop candidate."
+        }
+    ],
+    "metadata": {
+        "date": "2024-11-10T14:21:17.729109+00:00",
+        "video_id": "LCYw8ZH-8wg"
+    }
+}

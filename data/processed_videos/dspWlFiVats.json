@@ -1,0 +1,92 @@
+{
+    "mentions": [
+        {
+            "name": "Desmond Bane",
+            "team": "MEM",
+            "advice": "add",
+            "urgency": 5,
+            "analysis": "Desmond Bane is ready to return and is not officially in, but he didn't even get the doubtful tag that Marcus Smart and Vince Williams got. He's questionable for Friday's game, and you should add Bane if somehow he's available."
+        },
+        {
+            "name": "Vince Williams",
+            "team": "MEM",
+            "advice": "add",
+            "urgency": 3,
+            "analysis": "Vince Williams is questionable for Friday's game. While initially thought to be a good grab due to Desmond Bane's absence, his upside might be limited with Bane's return. However, he might still be better than Santi Aldama and others in the rotation."
+        },
+        {
+            "name": "Jared McCain",
+            "team": "PHL",
+            "advice": "watch",
+            "urgency": 2,
+            "analysis": "Jared McCain performed well last game, but there are concerns about how he fits with Tyrese Maxey due to their size and defensive limitations. His long-term fit is uncertain, but he might still be okay for the next game."
+        },
+        {
+            "name": "Grant Williams",
+            "team": "CHA",
+            "advice": "pick up",
+            "urgency": 4,
+            "analysis": "Grant Williams has a good schedule coming up and is putting up nice numbers. He is worth a look despite some potential dud performances."
+        },
+        {
+            "name": "Robert Williams III",
+            "team": "POR",
+            "advice": "watch",
+            "urgency": 3,
+            "analysis": "Robert Williams III is one of the most added players, but with only two games in the next seven days, his value might not hold unless there are changes in the rotation."
+        },
+        {
+            "name": "Donovan Clingan",
+            "team": "POR",
+            "advice": "watch",
+            "urgency": 3,
+            "analysis": "Donovan Clingan is also being added frequently, but like Robert Williams III, his value might not hold with limited games in the upcoming schedule."
+        },
+        {
+            "name": "Jose Alvarado",
+            "team": "NOP",
+            "advice": "drop",
+            "urgency": 5,
+            "analysis": "Jose Alvarado is out for too long, making him a clear drop candidate."
+        },
+        {
+            "name": "Andre Drummond",
+            "team": "PHL",
+            "advice": "drop",
+            "urgency": 5,
+            "analysis": "Andre Drummond missed the last game and is not worth holding onto, especially with Joel Embiid out."
+        },
+        {
+            "name": "Kelly Oubre Jr.",
+            "team": "PHL",
+            "advice": "drop",
+            "urgency": 5,
+            "analysis": "Kelly Oubre Jr. is performing poorly and is a clear drop candidate."
+        },
+        {
+            "name": "Keyonte George",
+            "team": "UTA",
+            "advice": "consider adding",
+            "urgency": 3,
+            "analysis": "Keyonte George might not be a top 50 player, but he is worth considering for a roster spot due to potential upside."
+        },
+        {
+            "name": "Mike Conley",
+            "team": "MIN",
+            "advice": "watch",
+            "urgency": 2,
+            "analysis": "Mike Conley is hard to hold due to his poor shooting percentage, but this might change as his shooting improves."
+        },
+        {
+            "name": "Grayson Allen",
+            "team": "PHO",
+            "advice": "hold temporarily",
+            "urgency": 3,
+            "analysis": "Grayson Allen's shooting is expected to improve, and with Beal and Durant out, he is fine to hold for now."
+        }
+    ],
+    "metadata": {
+        "date": "2024-11-15T07:06:22.547276+00:00",
+        "video_id": "dspWlFiVats"
+    }
+}
