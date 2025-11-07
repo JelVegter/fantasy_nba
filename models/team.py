@@ -15,7 +15,7 @@ class Team(Base):
     __tablename__ = "team"
 
     id = Column(Integer, primary_key=True)
-    abbrev = Column(SQLAEnum(TeamEnum), nullable=True)
+    abbrev = Column(SQLAEnum(TeamEnum), nullable=False, unique=True)
     name = Column(String)
 
     created_at = Column(DateTime, default=func.now())

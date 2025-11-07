@@ -8,7 +8,7 @@ class FantasyRoster(Base):
 
     id = Column(Integer, primary_key=True)
     abbrev = Column(String, nullable=True)
-    name = Column(String, nullable=True)
+    name = Column(String, nullable=False, unique=True)
     division_id = Column(String, nullable=True)
     division_name = Column(String, nullable=True)
     owner = Column(String, nullable=True)

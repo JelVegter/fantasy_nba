@@ -9,8 +9,7 @@ from typing import Optional
 import os
 
 from dataclasses import dataclass
-from youtube_transcript_api import YouTubeTranscriptApi
-from llm import extract_player_mentions, process_video, PROCESSED_VIDEOS_PATH
+from llm import get_transcript, process_video, PROCESSED_VIDEOS_PATH
 
 FANTASY_ROSTER_INDEX = 6 if len(FANTASY_ROSTERS) > 5 else 0
 
@@ -55,9 +54,11 @@ def get_players_base() -> pl.DataFrame:
 def fetch_transcript(video_id: str) -> str:
     """Fetches the transcript for a given YouTube video ID."""
     try:
-        transcript_data = YouTubeTranscriptApi.get_transcript(video_id)
-        transcript = " ".join([segment["text"] for segment in transcript_data])
-        return transcript
+        transcript_result = get_transcript(video_id)
+        if not transcript_result:
+            logger.warning("Transcript unavailable for video %s", video_id)
+            return ""
+        return transcript_result.text
     except Exception as e:
         logger.error(f"Failed to retrieve transcript for video {video_id}: {e}")
         return ""
@@ -80,7 +81,22 @@ def process_youtube_videos(
     for url in video_urls:
         video_id = url.split("v=")[-1]
         video_id = video_id.split("&")[0]
-        mentioned_players.extend(process_video(video_id, players))
+        results = process_video(video_id, players)
+        if not results:
+            logger.warning(f"No transcript/mentions for video {video_id}; skipping")
+            continue
+        mentioned_players.extend(results)
+
+    if not mentioned_players:
+        # Ensure downstream selects/join have expected columns even when empty
+        return pl.DataFrame(
+            schema={
+                "name": pl.Utf8,
+                "advice": pl.Utf8,
+                "urgency": pl.Int64,
+                "analysis": pl.Utf8,
+            }
+        )
 
     return pl.DataFrame(mentioned_players)
 
@@ -275,15 +291,21 @@ def app():
         how="inner",
     )
 
-    # Print players that were mentioned but didn't join
-    mentioned_players = set(player_mentions_df["name"].to_list())
-    joined_players = set(df_analysis["name"].to_list())
-    missing_players = mentioned_players - joined_players
+    # Show players that were mentioned but are not in the database (with urgency/advice)
+    db_player_names = set(df_base["name"].to_list())
+    missing_mentions = player_mentions_df.filter(
+        ~pl.col("name").is_in(list(db_player_names))
+    )
 
-    if missing_players:
+    if not missing_mentions.is_empty():
         st.warning("Players mentioned but not in database:")
-        for player in missing_players:
-            st.write(f"- {player}")
+        st.dataframe(
+            missing_mentions.select(["name", "advice", "urgency", "analysis"])
+            .sort("urgency", descending=True)
+            .to_pandas(),
+            height=200,
+            width=600,
+        )
 
     # Reorder columns by creating a new selection with desired order
     analysis_cols = ["name", "advice", "urgency", "analysis", "is_free_agent"]

@@ -1,10 +1,10 @@
 import asyncio
+import json
 import aiohttp
-from pandas import DataFrame, read_html, concat, to_datetime
+from pandas import DataFrame, concat, to_datetime
 from src.espn.league import YEAR
 from data.db import Session
 from src.common.constants import TIMEZONE
-from data.enums import TeamEnum
 from models.schedule import Schedule
 
 
@@ -19,64 +19,85 @@ async def fetch_api_data(urls: list) -> list:
         return await asyncio.gather(*tasks)
 
 
-def convert_to_24_hour_format(time_str: str) -> str:
-    if time_str.endswith("p"):
-        hour, minute = map(int, time_str[:-1].split(":"))
-        if hour != 12:  # If it's 12 PM, we don't need to add 12
-            hour += 12
-        return f"{hour:02}:{minute:02}"
-    elif time_str.endswith("a"):
-        hour, minute = map(int, time_str[:-1].split(":"))
-        if hour == 12:  # If it's 12 AM, hour becomes 0
-            hour = 0
-        return f"{hour:02}:{minute:02}"
-    else:
-        # Return original string if it doesn't end with 'a' or 'p'
-        return time_str
+NBA_SCHEDULE_URL = "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json"
+
+
+async def fetch_nba_schedule_json() -> dict:
+    async with aiohttp.ClientSession() as session:
+        async with session.get(
+            NBA_SCHEDULE_URL,
+            timeout=60,
+            ssl=False,
+            headers={
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15"
+            },
+        ) as resp:
+            resp.raise_for_status()
+            text = await resp.text()
+            try:
+                return json.loads(text)
+            except Exception:
+                # Attempt to recover if there is leading noise/BOM
+                start = text.find("{")
+                if start != -1:
+                    return json.loads(text[start:])
+                raise
+
+
+def normalize_tricode(code: str) -> str:
+    mapping = {
+        "PHI": "PHL",  # TeamEnum uses PHL
+        "PHX": "PHO",  # TeamEnum uses PHO
+    }
+    return mapping.get(code, code)
 
 
 class ScheduleGetter:
     async def fetch_data(self, year: int) -> DataFrame:  # Note the 'async' keyword here
-        months = [
-            "october",
-            "november",
-            "december",
-            "january",
-            "february",
-            "march",
-            "april",
-        ]
-        base_url = "https://www.basketball-reference.com/leagues/NBA_{}_games-{}.html"
-        urls = [base_url.format(year, month) for month in months]
-        html_tables = [
-            read_html(content)[0] if content else None
-            for content in await fetch_api_data(urls)
-        ]
-        self.df = concat([table for table in html_tables if table is not None])
+        raw = await fetch_nba_schedule_json()
+        rows = []
+        game_dates = raw.get("leagueSchedule", {}).get("gameDates", [])
+        for gd in game_dates:
+            for g in gd.get("games", []):
+                dt_utc = g.get("gameDateTimeUTC")
+                if not dt_utc:
+                    continue
+                dt = to_datetime(dt_utc, utc=True).tz_convert(TIMEZONE)
+
+                # Season window similar to previous (Oct–Jun across two calendar years)
+                if not (
+                    (dt.year == year - 1 and dt.month >= 10)
+                    or (dt.year == year and dt.month <= 6)
+                ):
+                    continue
+
+                home = normalize_tricode(g["homeTeam"]["teamTricode"])
+                away = normalize_tricode(g["awayTeam"]["teamTricode"])
+                rows.append(
+                    {
+                        "date": dt,  # tz-aware datetime
+                        "time": dt.strftime("%H:%M"),
+                        "visitor": away,
+                        "home": home,
+                    }
+                )
+        self.df = DataFrame(rows)
         return self.df
 
     def clean_data(self) -> DataFrame:
-        self.df.columns = self.df.columns.str.lower()
-        # Convert time to 24-hour format
-        self.df["time"] = self.df["start (et)"].apply(convert_to_24_hour_format)
-        self.df["date"] = to_datetime(self.df["date"], errors="coerce").dt.tz_localize(
-            tz=TIMEZONE
-        )
-        self.df["datetime"] = to_datetime(
-            self.df["date"].astype(str) + " " + self.df["time"]
-        )
+        # Derive calendar fields from tz-aware datetime
         self.df["week"] = self.df["date"].dt.isocalendar().week
         self.df["day_of_year"] = self.df["date"].dt.dayofyear
         self.df["day_of_week"] = self.df["date"].dt.dayofweek
         self.df["date"] = self.df["date"].dt.date
-        self.df["visitor"] = self.df["visitor/neutral"].map(abbreviate_team)
-        self.df["home"] = self.df["home/neutral"].map(abbreviate_team)
+        # Drop rows with missing teams or time
+        self.df = self.df.dropna(subset=["visitor", "home", "time"]).copy()
         return self.df
 
     def transform_data(self) -> DataFrame:
         # Prepare the matchup column
         self.df["matchup"] = self.df.apply(
-            lambda x: x["visitor"] + "@" + x["home"], axis=1
+            lambda x: (x["visitor"] or "") + "@" + (x["home"] or ""), axis=1
         )
 
         # Split the data into home and visitor dataframes
@@ -113,19 +134,18 @@ class ScheduleGetter:
 
 
 def abbreviate_team(team: str) -> str:
-    teams = {e.value: e.name for e in TeamEnum}
-    return teams.get(team, team)
+    # No longer used with NBA tricodes; kept for backward compatibility if needed
+    return team
 
 
-async def main():
-    schedule = ScheduleGetter()
-    df = await schedule.process_data(year=YEAR)
+async def _ingest_schedule_async() -> None:
+    getter = ScheduleGetter()
+    df = await getter.process_data(year=YEAR)
     session = Session()
     try:
         session.query(Schedule).delete()
-
         for index, row in df.iterrows():
-            schedule = Schedule(
+            schedule_row = Schedule(
                 date=row["date"],
                 day_of_year=row["day_of_year"],
                 week=row["week"],
@@ -136,7 +156,7 @@ async def main():
                 matchup=row["matchup"],
                 is_visitor=row["is_visitor"],
             )
-            session.merge(schedule)
+            session.merge(schedule_row)
         session.commit()
     except Exception as e:
         print(f"An error occurred: {e}")
@@ -145,5 +165,9 @@ async def main():
         session.close()
 
 
+def ingest_schedule() -> None:
+    asyncio.run(_ingest_schedule_async())
+
+
 if __name__ == "__main__":
-    asyncio.run(main())
+    ingest_schedule()

@@ -1,0 +1,46 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "UV: debug reset_and_up (full)",
+      "type": "shell",
+      "command": "uv run --no-sync python -m debugpy --listen 5678 --wait-for-client reset_and_up.py",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "UV: debug reset_and_up (data only)",
+      "type": "shell",
+      "command": "echo DEBUGPY_SERVER_READY && uv run --no-sync python -m debugpy --listen 5679 --wait-for-client reset_and_up.py --skip-streamlit",
+      "options": { "cwd": "${workspaceFolder}" },
+      "isBackground": true,
+      "problemMatcher": [
+        {
+          "owner": "custom",
+          "fileLocation": ["absolute"],
+          "pattern": [
+            {
+              "regexp": "^(.+)$",
+              "file": 1,
+              "message": 1
+            }
+          ],
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": ".*DEBUGPY_SERVER_READY.*",
+            "endsPattern": ".*DEBUGPY_SERVER_READY.*"
+          }
+        }
+      ]
+    },
+    {
+      "label": "UV: debug Streamlit (only app)",
+      "type": "shell",
+      "command": "uv run --no-sync python -m debugpy --listen 5680 --wait-for-client -m streamlit run main.py",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    }
+  ]
+}
+
+

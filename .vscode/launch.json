@@ -1,0 +1,39 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "UV .venv: reset_and_up (full)",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/reset_and_up.py",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "UV .venv: reset_and_up (data only)",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/reset_and_up.py",
+      "args": ["--skip-streamlit"],
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "UV .venv: Streamlit (only app)",
+      "type": "python",
+      "request": "launch",
+      "module": "streamlit",
+      "args": ["run", "main.py"],
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    }
+  ]
+}
+
+

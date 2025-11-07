@@ -1,36 +1,49 @@
-[tool.poetry]
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
 name = "fantasy_nba"
 version = "0.1.0"
-description = ""
-authors = ["Jelle Vegter <jelle.vegter@nederlandseloterij.nl>"]
-packages = [
-    { include = "src" },
-    { include = "models" },
+description = "Fantasy NBA data ingestion and podcast analysis tools."
+authors = [{ name = "Jelle Vegter", email = "admin@noetic-tech.com" }]
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "aiohttp>=3.8.3,<4.0.0",
+    "asyncio>=3.4.3",
+    "beautifulsoup4>=4.11.1,<5.0.0",
+    "connectorx>=0.3.2,<0.4.0",
+    "debugpy>=1.8.17",
+    "espn-api==0.45.1",
+    "html5lib>=1.1,<2.0.0",
+    "langchain-community>=0.3.3,<1.0.0",
+    "langchain-openai>=0.2.3,<1.0.0",
+    "langchain>=0.3.4,<1.0.0",
+    "lxml>=4.9.1,<5.0.0",
+    "openai>=1.52.2,<2.0.0",
+    "pandas>=2.2.3,<3.0.0",
+    "polars>=0.19.6,<1.0.0",
+    "python-dotenv>=1.0.1,<2.0.0",
+    "sqlalchemy>=2.0.21,<3.0.0",
+    "streamlit>=1.13.0,<2.0.0",
+    "watchdog>=2.2.1,<3.0.0",
+    "youtube-transcript-api>=0.6.3,<1.0.0",
+    "yt-dlp>=2025.10.22",
+    "openai-whisper>=20250625",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Framework :: Streamlit",
 ]
 
-[tool.poetry.dependencies]
-python = "^3.11.6"
-streamlit = "^1.13.0"
-asyncio = "^3.4.3"
-pandas = "^2.2.3"
-lxml = "^4.9.1"
-aiohttp = "^3.8.3"
-html5lib = "^1.1"
-beautifulsoup4 = "^4.11.1"
-watchdog = "^2.2.1"
-sqlalchemy = "^2.0.21"
-polars = "^0.19.6"
-connectorx = "^0.3.2"
-espn-api = "0.40.1"
-openai = "^1.52.2"
-python-dotenv = "^1.0.1"
-langchain = "^0.3.4"
-langchain-community = "^0.3.3"
-langchain-openai = "^0.2.3"
+[project.optional-dependencies]
+dev = [
+    "black>=24.0.0,<25.0.0",
+    "isort>=5.13.0,<6.0.0",
+    "ruff>=0.5.0,<1.0.0",
+]
 
-[tool.poetry.dev-dependencies]
-pytest = "^5.2"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["tests", "tests.*", "docs", "docs.*"]

@@ -7,7 +7,12 @@ from models.schedule import Schedule
 from models.team import Team
 from models.player_stats import StatAggregation
 
-if __name__ == "__main__":
+
+def create_tables() -> None:
     Base.metadata.create_all(bind=DB_ENGINE)
+
+
+if __name__ == "__main__":
+    create_tables()
 
 __all__ = [League, FantasyRoster, Player, Schedule, Team, StatAggregation]

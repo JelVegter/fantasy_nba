@@ -68,11 +68,10 @@ def insert_players(session, all_players: list[Player]):
             session.execute(stmt)
 
 
-if __name__ == "__main__":
+def ingest_players() -> None:
     all_players = {FREE_AGENT: league.free_agents(size=200)}
     for roster in league.teams:
         all_players[roster.team_name] = list(roster.roster)
-
     with Session() as session:
         try:
             insert_players(session, all_players)
@@ -81,3 +80,7 @@ if __name__ == "__main__":
             print(f"Error occurred: {e}")
             session.rollback()
             raise e
+
+
+if __name__ == "__main__":
+    ingest_players()

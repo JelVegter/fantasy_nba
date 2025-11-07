@@ -66,7 +66,7 @@ def app():
             ["ACTIVE", "DAY_TO_DAY", "OUT"],
             default=["ACTIVE", "DAY_TO_DAY"],
         )
-        week = st.selectbox("Week", list(range(1, 52)), CURRENTWEEKNUMBER - 1)
+        week = st.selectbox("Week", list(range(1, 53)), CURRENTWEEKNUMBER - 1)
 
     df = df.filter(pl.col("week") == week)
     df = calculate_games_played(df)

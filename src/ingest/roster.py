@@ -3,21 +3,20 @@ from src.espn.league import league
 from models.fantasy_roster import FantasyRoster
 from sqlalchemy import func, insert
 
-if __name__ == "__main__":
-    session = Session()
 
-    # Insert or update Free Agent Roster
+def ingest_rosters() -> None:
+    session = Session()
     current_time = func.now()
-    stmt = (
+    # Insert or update Free Agent Roster
+    session.execute(
         insert(FantasyRoster)
         .prefix_with("OR REPLACE")
         .values(
             id=-1, name="Free Agent", created_at=current_time, modified_at=current_time
         )
     )
-    session.execute(stmt)
     for roster in league.teams:
-        stmt = (
+        session.execute(
             insert(FantasyRoster)
             .prefix_with("OR REPLACE")
             .values(
@@ -26,13 +25,15 @@ if __name__ == "__main__":
                 name=roster.team_name,
                 division_id=roster.division_id,
                 division_name=roster.division_name,
-                # owner=roster.owner,
                 standing=roster.standing,
                 final_standing=roster.final_standing,
                 created_at=current_time,
                 modified_at=current_time,
             )
         )
-        session.execute(stmt)
     session.commit()
     session.close()
+
+
+if __name__ == "__main__":
+    ingest_rosters()

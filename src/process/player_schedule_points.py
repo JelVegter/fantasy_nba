@@ -2,7 +2,7 @@ from data.db import DB_PATH, DB_URI
 from src.common.utils import fetch_data, write_data
 
 
-def main():
+def process_player_schedule_points() -> None:
     player_df = fetch_data(query="SELECT * FROM player", db_uri=DB_URI)
     schedule_df = fetch_data(query="SELECT * FROM schedule", db_uri=DB_URI)
     merged_df = player_df.join(schedule_df, on="team_abbrev")
@@ -32,6 +32,10 @@ def main():
     write_data(
         df=final_df, table_name="proj_player_points", db_uri=f"sqlite:///{DB_PATH}"
     )
+
+
+def main():
+    process_player_schedule_points()
 
 
 if __name__ == "__main__":

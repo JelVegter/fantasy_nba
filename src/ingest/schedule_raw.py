@@ -151,7 +151,7 @@ def abbreviate_team(team: str) -> str:
 
 async def main():
     schedule = ScheduleGetter()
-    df = await schedule.process_data(year=2024)
+    df = await schedule.process_data(year=2025)
     df.to_csv("schedule.csv", index=False)
     print(df)
 
