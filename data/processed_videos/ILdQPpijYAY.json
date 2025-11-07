@@ -1,0 +1,156 @@
+{
+    "mentions": [
+        {
+            "name": "Ben Sheppard",
+            "team": "IND",
+            "advice": "pick up",
+            "urgency": 4,
+            "analysis": "With Andrew Nembhard out and T.J. McConnell also unavailable, Sheppard is an interesting add due to the lack of available guards on the Pacers."
+        },
+        {
+            "name": "Dominick Barlow",
+            "team": "PHL",
+            "advice": "drop",
+            "urgency": 3,
+            "analysis": "Barlow was streamed for a game but only lasted 12 minutes, making him a drop candidate in most cases."
+        },
+        {
+            "name": "Isaiah Stewart",
+            "team": "DET",
+            "advice": "drop",
+            "urgency": 3,
+            "analysis": "People added him thinking Jalen Duren might get suspended, but with no suspension news, Stewart is not a must-roster player."
+        },
+        {
+            "name": "Dillon Brooks",
+            "team": "PHO",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "Brooks is fine to have taken a flyer on, especially with Jalen Green's return pending."
+        },
+        {
+            "name": "D'Angelo Russell",
+            "team": "DAL",
+            "advice": "drop",
+            "urgency": 4,
+            "analysis": "Russell is the second most dropped player and should never have been on rosters."
+        },
+        {
+            "name": "Ace Bailey",
+            "team": "UTA",
+            "advice": "watch",
+            "urgency": 2,
+            "analysis": "Bailey played only 12 minutes due to illness, and while his role is important, it's worth watching his minutes and performance over the next few games."
+        },
+        {
+            "name": "Trey Jones",
+            "team": "CHI",
+            "advice": "pick up",
+            "urgency": 5,
+            "analysis": "With Kobe White out, Jones is a must-add, having delivered a strong performance with 13 points, 5 rebounds, 8 assists, and 5 steals."
+        },
+        {
+            "name": "Kevin Huerter",
+            "team": "CHI",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "Huerter is performing well in Kobe White's absence, making him 12-team worthy with his recent performance."
+        },
+        {
+            "name": "Tyus Jones",
+            "team": "PHO",
+            "advice": "drop",
+            "urgency": 4,
+            "analysis": "Jones started in place of Jalen Suggs but was ineffective, making him not worth rostering."
+        },
+        {
+            "name": "Anthony Black",
+            "team": "ORL",
+            "advice": "watch",
+            "urgency": 3,
+            "analysis": "Black had a good game with 19 points, 5 rebounds, and a triple one, making him a potential stream option when Suggs sits."
+        },
+        {
+            "name": "AJ Mitchell",
+            "team": "OKC",
+            "advice": "pick up",
+            "urgency": 4,
+            "analysis": "Mitchell had a strong performance with 14 points, 7 rebounds, and 7 assists. He is very good and worth using for now, though long-term viability is uncertain."
+        },
+        {
+            "name": "Naji Marshall",
+            "team": "DAL",
+            "advice": "pick up",
+            "urgency": 3,
+            "analysis": "Marshall is benefiting from injuries to other players and is worth rostering while they are out."
+        },
+        {
+            "name": "Collin Sexton",
+            "team": "CHA",
+            "advice": "pick up",
+            "urgency": 4,
+            "analysis": "With Brandon Miller potentially out, Sexton will be relied upon more, making him a good pickup."
+        },
+        {
+            "name": "Ryan Kalkbrenner",
+            "team": "CHA",
+            "advice": "pick up",
+            "urgency": 5,
+            "analysis": "Kalkbrenner is a must-roster player after a strong performance with 14 points, 7 rebounds, and a block."
+        },
+        {
+            "name": "Moussa Diabate",
+            "team": "CHA",
+            "advice": "drop",
+            "urgency": 3,
+            "analysis": "Diabate was not good in his recent game, and with low upside, he is droppable."
+        },
+        {
+            "name": "Andre Drummond",
+            "team": "PHL",
+            "advice": "watch",
+            "urgency": 2,
+            "analysis": "Drummond played well with 7 points and 13 rebounds, but his role is uncertain with Embiid's minutes set to increase."
+        },
+        {
+            "name": "Adem Bona",
+            "team": "PHL",
+            "advice": "drop",
+            "urgency": 4,
+            "analysis": "Bona is struggling and is a drop candidate in 10s, 12s, and 14s."
+        },
+        {
+            "name": "VJ Edgecombe",
+            "team": "PHL",
+            "advice": "hold",
+            "urgency": 3,
+            "analysis": "Edgecombe played 40 minutes and had a well-rounded game, making him worth holding despite potential impact from returning players."
+        },
+        {
+            "name": "Quentin Grimes",
+            "team": "PHL",
+            "advice": "hold",
+            "urgency": 3,
+            "analysis": "Grimes had a good game with 24 points and 5 threes, but his long-term value is uncertain with returning players."
+        },
+        {
+            "name": "Cedric Coward",
+            "team": "MEM",
+            "advice": "pick up",
+            "urgency": 4,
+            "analysis": "Coward has been performing well, but his shooting percentages are unsustainable. Worth adding in deeper leagues."
+        },
+        {
+            "name": "Jalen Wells",
+            "team": "MEM",
+            "advice": "drop",
+            "urgency": 3,
+            "analysis": "Wells is struggling and not a must-hold in 12-team leagues."
+        }
+    ],
+    "metadata": {
+        "date": "2025-10-26T08:10:22.746937+00:00",
+        "video_id": "ILdQPpijYAY",
+        "transcript_method": "whisper"
+    }
+}

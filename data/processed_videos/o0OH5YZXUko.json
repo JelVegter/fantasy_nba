@@ -1,0 +1,79 @@
+{
+    "mentions": [
+        {
+            "name": "Domantas Sabonis",
+            "team": "SAC",
+            "advice": "watch",
+            "urgency": 3,
+            "analysis": "Sabonis is being rushed back from a hamstring injury due to the Kings' lack of forwards. If he plays, Drew Eubanks loses streaming value, but there's a risk of injury recurrence."
+        },
+        {
+            "name": "Mitchell Robinson",
+            "team": "NYK",
+            "advice": "drop",
+            "urgency": 4,
+            "analysis": "Robinson is out again managing an injury, and the suggestion is to not hold onto him due to uncertainty about his playing status."
+        },
+        {
+            "name": "AJ Mitchell",
+            "team": "OKC",
+            "advice": "stream",
+            "urgency": 2,
+            "analysis": "Mitchell had a career-high game with 26 points, but his value is contingent on the absence of other players like Jalen Williams, Cason Wallace, and Alex Caruso."
+        },
+        {
+            "name": "Aaron Wiggins",
+            "team": "OKC",
+            "advice": "stream",
+            "urgency": 2,
+            "analysis": "Wiggins moved into the starting lineup due to injuries and had a strong performance, but his long-term value is limited once other players return."
+        },
+        {
+            "name": "Ben Sheppard",
+            "team": "IND",
+            "advice": "add",
+            "urgency": 3,
+            "analysis": "Sheppard played 39 minutes and had a strong performance due to injuries to other guards. He could be a short-term add with the Pacers' favorable schedule."
+        },
+        {
+            "name": "Isaiah Jackson",
+            "team": "IND",
+            "advice": "drop",
+            "urgency": 4,
+            "analysis": "Jackson had a poor performance with foul trouble and limited minutes. The Pacers' center rotation is uncertain, making him a risky hold."
+        },
+        {
+            "name": "Obi Toppin",
+            "team": "IND",
+            "advice": "add",
+            "urgency": 3,
+            "analysis": "Toppin played 40 minutes and had a strong game. He is a viable add, especially with the Pacers' upcoming back-to-back games."
+        },
+        {
+            "name": "Aaron Gordon",
+            "team": "DEN",
+            "advice": "add",
+            "urgency": 5,
+            "analysis": "Gordon had an outstanding game with 50 points and 10 threes. His shooting improvement suggests he could be a valuable addition."
+        },
+        {
+            "name": "Cam Johnson",
+            "team": "DEN",
+            "advice": "watch",
+            "urgency": 2,
+            "analysis": "Johnson had a poor performance, and while not a drop candidate yet, his role as a lower option on the team could limit his fantasy value."
+        },
+        {
+            "name": "Jonathan Kuminga",
+            "team": "GSW",
+            "advice": "hold",
+            "urgency": 1,
+            "analysis": "Kuminga's performance was decent but not as strong as his first game. He remains a back-end category player with potential for improvement."
+        }
+    ],
+    "metadata": {
+        "date": "2025-10-24T08:10:40.831425+00:00",
+        "video_id": "o0OH5YZXUko",
+        "transcript_method": "whisper"
+    }
+}
