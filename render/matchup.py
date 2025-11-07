@@ -1,14 +1,17 @@
 import streamlit as st
 from src.common.utils import fetch_data
-from src.common.constants import FANTASY_ROSTERS, CURRENTDAYOFYEAR, PLAYER_POINTS_COLS
+from src.common.constants import (
+    FANTASY_ROSTERS,
+    CURRENTDAYOFYEAR,
+    PLAYER_POINTS_COLS,
+    FANTASY_ROSTER_INDEX,
+)
 from data.db import DB_URI
 import polars as pl
 from logs import logger
 import json
 
 from dataclasses import dataclass
-
-FANTASY_ROSTER_INDEX = 6 if len(FANTASY_ROSTERS) > 5 else 0
 
 
 @dataclass

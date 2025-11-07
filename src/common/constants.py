@@ -59,3 +59,4 @@ def get_fantasy_rosters_as_list() -> list[str]:
 
 # FREE_AGENTS = get_free_agents()
 FANTASY_ROSTERS = get_fantasy_rosters_as_list()
+FANTASY_ROSTER_INDEX = 0
